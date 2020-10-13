@@ -10,15 +10,10 @@
  */
 import javascript
 
+// SendGrid Docs
+// - https://sendgrid.com/docs/ui/account-and-settings/api-keys
+// - https://sendgrid.com/docs/for-developers/sending-email/quickstart-nodejs/#complete-code-block
 
-/**
- * SendGrid Docs: https://sendgrid.com/docs/for-developers/sending-email/quickstart-nodejs/#complete-code-block
-*/
-
-from CallExpr call, Expr expr, string str
-where call.getCalleeName() = "setApiKey"
-    and
-    call.getArgument(0) = expr
-    and
-    expr.getStringValue() = str
-select expr, "Hardcoded SendGrid token was found: " + str
+from StringLiteral sl
+where sl.getValue().regexpMatch("(/SG.[a-z0-9].[a-z0-9]/i)")
+select sl, "Possible sendgrid API token found \"" + sl.getValue() + "\""
