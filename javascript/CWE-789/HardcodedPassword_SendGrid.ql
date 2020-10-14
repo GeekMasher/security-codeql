@@ -1,6 +1,7 @@
 /**
  * @name Hardcoded Password (SendGrid)
- * @kind path-problem
+ * @description Hardcoded Password for SendGrid
+ * @kind problem
  * @problem.severity error
  * @id js/hardcoded-credentials
  * @tags security
