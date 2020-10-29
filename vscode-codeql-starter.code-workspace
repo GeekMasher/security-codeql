@@ -1,0 +1,36 @@
+{
+    "folders": [
+        {
+            "name": "Queries - C/CPP",
+            "path": "cpp"
+        },
+        {
+            "name": "Queries - CSharp",
+            "path": "csharp"
+        },
+        {
+            "name": "Queries - GoLang",
+            "path": "golang"
+        },
+        {
+            "name": "Queries - Java",
+            "path": "java"
+        },
+        {
+            "name": "Queries - JavaScript/TypeScript",
+            "path": "javascript"
+        },
+        {
+            "name": "Queries - Python",
+            "path": "python"
+        },
+        {
+            "name": "Scripts",
+            "path": "scripts"
+        },
+        {
+            "name": "Configuration",
+            "path": "config"
+        }
+    ]
+}

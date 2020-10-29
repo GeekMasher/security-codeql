@@ -1,0 +1,20 @@
+name: "GeekMasher CodeQL Configuration"
+
+disable-default-queries: true
+
+queries:
+  # Javascript security and extended and exclude a few unwanted queries
+  - name: Use a custom Javascript suite
+    uses: ./config/javascript-suite.qls
+
+  - uses: javascript/CWE-789/HardcodedPassword_SendGrid.ql@main
+
+paths-ignore:
+  # JavaScript
+  - node_modules
+  - '**/*.test.js'
+  # GoLang
+  - '**/*.test.go'
+
+paths:
+  - '/**/'

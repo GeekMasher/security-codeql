@@ -1,0 +1,16 @@
+#   See https://help.semmle.com/codeql/codeql-cli/procedures/query-suites.html#filtering-the-queries-in-a-query-suite
+#   for additional ways to exclude queries
+
+- import: codeql-suites/javascript-security-and-quality.qls
+  from: codeql-javascript
+
+- exclude:
+    query filename:
+    - MissingRateLimiting.ql
+
+#   query path:
+#   -
+#   tags contain:
+#   -
+#   tags contain all:
+#   -
