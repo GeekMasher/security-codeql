@@ -11,8 +11,11 @@ queries:
 
 paths-ignore:
   # JavaScript
-  - node_modules
+  - 'node_modules'
   - '**/*.test.js'
+  - '**/bootstrap.js'
+  - '**/bootstrap.min.js'
+  - '**/jquery-*.js'
   # GoLang
   - '**/*.test.go'
 

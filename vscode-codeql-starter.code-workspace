@@ -25,12 +25,24 @@
             "path": "python"
         },
         {
+            "name": "CodeQL - Query Languages",
+            "path": "codeql"
+        },
+        {
+            "name": "CodeQL - GoLang Query Language",
+            "path": "codeql-go"
+        },
+        {
             "name": "Scripts",
             "path": "scripts"
         },
         {
             "name": "Configuration",
             "path": "config"
+        },
+        {
+            "name": "Databases",
+            "path": "databases"
         }
     ]
 }
