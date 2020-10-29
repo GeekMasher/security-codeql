@@ -1,0 +1,8 @@
+[submodule "codeql"]
+	path = codeql
+	url = https://github.com/github/codeql.git
+	branch = v1.25.0
+[submodule "codeql-go"]
+	path = codeql-go
+	url = https://github.com/github/codeql-go.git
+	branch = v1.25.0
