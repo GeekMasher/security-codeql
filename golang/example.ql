@@ -1,8 +1,10 @@
 /**
  * @name Empty block
+ * @description Empty block
  * @kind problem
  * @problem.severity warning
  * @id go/example/empty-block
+ * @tags security
  */
 
 import go
