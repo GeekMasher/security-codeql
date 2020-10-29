@@ -7,7 +7,7 @@ queries:
   - name: Use a custom Javascript suite
     uses: GeekMasher/security-queries/config/javascript-suite.qls@main
 
-  - uses: GeekMasher/security-queries/javascript/CWE-789/HardcodedPassword_SendGrid.ql@main
+  - uses: GeekMasher/security-queries@main
 
 paths-ignore:
   # JavaScript
