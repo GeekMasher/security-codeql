@@ -3,10 +3,10 @@ name: "GeekMasher CodeQL Java Debugging Configuration"
 queries:
   # >> Metrics
   # https://github.com/github/codeql/tree/main/java/ql/src/Metrics/Files
-  - uses: github/codeql/*/src/Metrics/Files/FLinesOfCode.ql@main
-  - uses: github/codeql/*/src/Metrics/Files/FLinesOfCommentedCode.ql@main
-  - uses: github/codeql/*/src/Metrics/Files/FLinesOfComment.ql@main
-  - uses: github/codeql/*/src/Metrics/Files/FNumberOfTests.ql@main
+  - uses: github/codeql/**/ql/src/Metrics/Files/FLinesOfCode.ql@main
+  - uses: github/codeql/**/ql/src/Metrics/Files/FLinesOfCommentedCode.ql@main
+  - uses: github/codeql/**/ql/src/Metrics/Files/FLinesOfComment.ql@main
+  - uses: github/codeql/**/ql/src/Metrics/Files/FNumberOfTests.ql@main
 
   # >> Sources
   - uses: java/debugging/Sources.ql
