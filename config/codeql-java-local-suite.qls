@@ -1,0 +1,21 @@
+#   See https://help.semmle.com/codeql/codeql-cli/procedures/query-suites.html#filtering-the-queries-in-a-query-suite
+#   for additional ways to exclude queries
+
+- description: "GeekMasher CodeQL Local Threat Model Java Suite"
+
+- import: codeql-suites/java-extended.qls
+  from: codeql-java
+
+- include:
+  - query filename:
+    - "*Local.ql"
+
+# - exclude:
+#   query filename:
+#     - 
+#   query path:
+#     -
+#   tags contain:
+#     -
+#   tags contain all:
+#     -
