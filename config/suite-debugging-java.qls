@@ -8,10 +8,10 @@
 
 - qlpack: codeql-java
 - include:
-  query filename:
-    # >> Metrics
-    # https://github.com/github/codeql/tree/main/java/ql/src/Metrics/Files
-    - FLinesOfCode.ql
-    - FLinesOfCommentedCode.ql
-    - FLinesOfComment.ql
-    - FNumberOfTests.ql
+    query filename:
+        # >> Metrics
+        # https://github.com/github/codeql/tree/main/java/ql/src/Metrics/Files
+        - FLinesOfCode.ql
+        - FLinesOfCommentedCode.ql
+        - FLinesOfComment.ql
+        - FNumberOfTests.ql
