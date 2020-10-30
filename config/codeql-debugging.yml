@@ -1,9 +1,16 @@
 name: "GeekMasher CodeQL Java Debugging Configuration"
 
 queries:
-  # Javascript security and extended and exclude a few unwanted queries
-  - name: Java Debugging Suite
-    uses: GeekMasher/security-queries/config/suite-debugging-java.qls@main
+  # >> Metrics
+  # https://github.com/github/codeql/tree/main/java/ql/src/Metrics/Files
+  - uses: github/codeql/*/src/Metrics/Files/FLinesOfCode.ql@main
+  - uses: github/codeql/*/src/Metrics/Files/FLinesOfCommentedCode.ql@main
+  - uses: github/codeql/*/src/Metrics/Files/FLinesOfComment.ql@main
+  - uses: github/codeql/*/src/Metrics/Files/FNumberOfTests.ql@main
+
+  # >> Sources
+  - uses: java/debugging/Sources.ql
+  - uses: csharp/debugging/Sources.ql
 
 paths:
   - '/**/'
