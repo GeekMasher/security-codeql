@@ -1,4 +1,4 @@
-name: "GeekMasher CodeQL Local Threat Model Configuration"
+name: "GeekMasher CodeQL Java Local Threat Model Configuration"
 
 disable-default-queries: true
 
@@ -7,14 +7,6 @@ queries:
   - name: Use a custom Javascript suite
     uses: GeekMasher/security-queries/config/codeql-java-local-suite@main
 
-
-paths-ignore:
-  # JavaScript
-  - 'node_modules'
-  - '**/*.test.js'
-  - '**/bootstrap.js'
-  - '**/bootstrap.min.js'
-  - '**/jquery-*.js'
 
 paths:
   - '/**/'
