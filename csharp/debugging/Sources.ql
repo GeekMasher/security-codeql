@@ -5,6 +5,7 @@
  * @description Potential source of untrusted data
  * @precision low
  * @severity warning
+ * @tags debugging
  */
 
 import csharp

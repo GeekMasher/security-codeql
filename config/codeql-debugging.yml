@@ -1,0 +1,9 @@
+name: "GeekMasher CodeQL Java Debugging Configuration"
+
+queries:
+  # Javascript security and extended and exclude a few unwanted queries
+  - name: Java Debugging Suite
+    uses: GeekMasher/security-queries/config/suite-debugging-java.qls@main
+
+paths:
+  - '/**/'
