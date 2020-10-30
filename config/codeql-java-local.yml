@@ -1,12 +1,21 @@
 name: "GeekMasher CodeQL Java Local Threat Model Configuration"
 
-disable-default-queries: true
-
 queries:
   # Javascript security and extended and exclude a few unwanted queries
-  - name: Use a custom Javascript suite
-    uses: GeekMasher/security-queries/config/codeql-java-local-suite.qls@main
+  # - name: Use a custom Javascript suite
+  #   uses: GeekMasher/security-queries/config/codeql-java-local-suite.qls@main
 
+  - uses: Security/CWE/CWE-601/UrlRedirectLocal.ql
+  - uses: Security/CWE/CWE-113/ResponseSplittingLocal.ql
+  - uses: Security/CWE/CWE-190/ArithmeticTaintedLocal.ql
+  - uses: Security/CWE/CWE-089/SqlTaintedLocal.ql
+  - uses: Security/CWE/CWE-129/ImproperValidationOfArrayConstructionLocal.ql
+  - uses: Security/CWE/CWE-129/ImproperValidationOfArrayIndexLocal.ql
+  - uses: Security/CWE/CWE-134/ExternallyControlledFormatStringLocal.ql
+  - uses: Security/CWE/CWE-022/TaintedPathLocal.ql
+  - uses: Security/CWE/CWE-078/ExecTaintedLocal.ql
+  - uses: Security/CWE/CWE-681/NumericCastTaintedLocal.ql
+  - uses: Security/CWE/CWE-079/XSSLocal.ql
 
 paths:
   - '/**/'
