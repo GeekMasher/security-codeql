@@ -3,7 +3,7 @@
 
 - description: "GeekMasher CodeQL Local Threat Model Java Suite"
 
-- import: codeql-suites/java-extended.qls
+- import: codeql-suites/java-security-extended.qls
   from: codeql-java
 
 - query: "*Local.ql"
