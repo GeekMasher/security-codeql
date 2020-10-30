@@ -6,9 +6,7 @@
 - import: codeql-suites/java-extended.qls
   from: codeql-java
 
-- include:
-  query filename:
-    - "*Local.ql"
+- query: "*Local.ql"
 
 # - exclude:
 #   query filename:
