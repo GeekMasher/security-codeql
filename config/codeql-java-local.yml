@@ -5,7 +5,7 @@ disable-default-queries: true
 queries:
   # Javascript security and extended and exclude a few unwanted queries
   - name: Use a custom Javascript suite
-    uses: GeekMasher/security-queries/config/codeql-java-local-suite@main
+    uses: GeekMasher/security-queries/config/codeql-java-local-suite.qls@main
 
 
 paths:
