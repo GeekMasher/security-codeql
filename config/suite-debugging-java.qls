@@ -16,14 +16,3 @@
 
 # >> Sources
 - query: java/debugging/Sources.ql
-- query: csharp/debugging/Sources.ql
-
-# - exclude:
-#   query filename:
-#     - 
-#   query path:
-#     -
-#   tags contain:
-#     -
-#   tags contain all:
-#     -
