@@ -1,16 +1,13 @@
 name: "GeekMasher CodeQL Java Debugging Configuration"
 
-queries:
-  # >> Metrics
-  # https://github.com/github/codeql/tree/main/java/ql/src/Metrics/Files
-  - uses: github/codeql/java/ql/src/Metrics/Files/FLinesOfCode.ql@main
-  - uses: github/codeql/java/ql/src/Metrics/Files/FLinesOfCommentedCode.ql@main
-  - uses: github/codeql/java/ql/src/Metrics/Files/FLinesOfComment.ql@main
-  - uses: github/codeql/java/ql/src/Metrics/Files/FNumberOfTests.ql@main
+disable-default-queries: true
 
+queries:
+  - uses: config/suite-debugging-java.qls
   # >> Sources
   - uses: java/debugging/Sources.ql
   - uses: csharp/debugging/Sources.ql
 
+  
 paths:
   - '/**/'

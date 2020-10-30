@@ -6,13 +6,12 @@
 - import: codeql-suites/java-security-extended.qls
   from: codeql-java
 
-# Queries
-# >> Metrics
-# https://github.com/github/codeql/tree/main/java/ql/src/Metrics/Files
-- query: github/codeql/java/src/Metrics/Files/FLinesOfCode.ql@main
-- query: github/codeql/java/src/Metrics/Files/FLinesOfCommentedCode.ql@main
-- query: github/codeql/java/src/Metrics/Files/FLinesOfComment.ql@main
-- query: github/codeql/java/src/Metrics/Files/FNumberOfTests.ql@main
-
-# >> Sources
-- query: java/debugging/Sources.ql
+- qlpack: codeql-java
+- include:
+  query filename:
+    # >> Metrics
+    # https://github.com/github/codeql/tree/main/java/ql/src/Metrics/Files
+    - FLinesOfCode.ql
+    - FLinesOfCommentedCode.ql
+    - FLinesOfComment.ql
+    - FNumberOfTests.ql
