@@ -5,17 +5,17 @@ queries:
   # - name: Use a custom Javascript suite
   #   uses: GeekMasher/security-queries/config/codeql-java-local-suite.qls@main
 
-  - uses: Security/CWE/CWE-601/UrlRedirectLocal.ql
-  - uses: Security/CWE/CWE-113/ResponseSplittingLocal.ql
-  - uses: Security/CWE/CWE-190/ArithmeticTaintedLocal.ql
-  - uses: Security/CWE/CWE-089/SqlTaintedLocal.ql
-  - uses: Security/CWE/CWE-129/ImproperValidationOfArrayConstructionLocal.ql
-  - uses: Security/CWE/CWE-129/ImproperValidationOfArrayIndexLocal.ql
-  - uses: Security/CWE/CWE-134/ExternallyControlledFormatStringLocal.ql
-  - uses: Security/CWE/CWE-022/TaintedPathLocal.ql
-  - uses: Security/CWE/CWE-078/ExecTaintedLocal.ql
-  - uses: Security/CWE/CWE-681/NumericCastTaintedLocal.ql
-  - uses: Security/CWE/CWE-079/XSSLocal.ql
+  - uses: github/codeql/java/ql/src/Security/CWE/CWE-601/UrlRedirectLocal.ql@main
+  - uses: github/codeql/java/ql/src/Security/CWE/CWE-113/ResponseSplittingLocal.ql@main
+  - uses: github/codeql/java/ql/src/Security/CWE/CWE-190/ArithmeticTaintedLocal.ql@main
+  - uses: github/codeql/java/ql/src/Security/CWE/CWE-089/SqlTaintedLocal.ql@main
+  - uses: github/codeql/java/ql/src/Security/CWE/CWE-129/ImproperValidationOfArrayConstructionLocal.ql@main
+  - uses: github/codeql/java/ql/src/Security/CWE/CWE-129/ImproperValidationOfArrayIndexLocal.ql@main
+  - uses: github/codeql/java/ql/src/Security/CWE/CWE-134/ExternallyControlledFormatStringLocal.ql@main
+  - uses: github/codeql/java/ql/src/Security/CWE/CWE-022/TaintedPathLocal.ql@main
+  - uses: github/codeql/java/ql/src/Security/CWE/CWE-078/ExecTaintedLocal.ql@main
+  - uses: github/codeql/java/ql/src/Security/CWE/CWE-681/NumericCastTaintedLocal.ql@main
+  - uses: github/codeql/java/ql/src/Security/CWE/CWE-079/XSSLocal.ql@main
 
 paths:
   - '/**/'
