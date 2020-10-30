@@ -6,7 +6,17 @@
 - import: codeql-suites/java-security-extended.qls
   from: codeql-java
 
-- query: "*Local.ql"
+- query: Security/CWE/CWE-601/UrlRedirectLocal.ql
+- query: Security/CWE/CWE-113/ResponseSplittingLocal.ql
+- query: Security/CWE/CWE-190/ArithmeticTaintedLocal.ql
+- query: Security/CWE/CWE-089/SqlTaintedLocal.ql
+- query: Security/CWE/CWE-129/ImproperValidationOfArrayConstructionLocal.ql
+- query: Security/CWE/CWE-129/ImproperValidationOfArrayIndexLocal.ql
+- query: Security/CWE/CWE-134/ExternallyControlledFormatStringLocal.ql
+- query: Security/CWE/CWE-022/TaintedPathLocal.ql
+- query: Security/CWE/CWE-078/ExecTaintedLocal.ql
+- query: Security/CWE/CWE-681/NumericCastTaintedLocal.ql
+- query: Security/CWE/CWE-079/XSSLocal.ql
 
 # - exclude:
 #   query filename:
