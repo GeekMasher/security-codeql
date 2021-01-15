@@ -43,6 +43,17 @@
         {
             "name": "Databases",
             "path": "databases"
+        },
+        {
+            "name": "Binaries",
+            "path": "bin"
         }
-    ]
+    ],
+    "settings": {
+        "codeQL.runningQueries.autoSave": true,
+        "codeQL.runningQueries.maxQueries": 50,
+        "codeQL.runningQueries.memory": 8192,
+        "codeQL.runningQueries.numberOfThreads": 4,
+        "codeQL.runningQueries.debug": true
+    }
 }
