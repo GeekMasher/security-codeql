@@ -17,4 +17,4 @@ import semmle.javascript.dataflow.DataFlow
 from CallExpr call, Expr expr
 where
     call.getCalleeName() = "insert" and expr = call.getCallee()
-select "Deprecated Methods in MongoDB", expr
+select expr, "Deprecated Methods in MongoDB"
