@@ -1,6 +1,7 @@
 
 .cache
 /databases
+/codeql-runner
 
 /bin
 

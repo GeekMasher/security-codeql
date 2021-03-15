@@ -47,6 +47,10 @@
         {
             "name": "Binaries",
             "path": "bin"
+        },
+        {
+            "name": "[govwa source archive]",
+            "uri": "codeql-zip-archive://0-80/Users/geekmasher/Documents/development/security-queries/databases/govwa/src.zip"
         }
     ],
     "settings": {
