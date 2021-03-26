@@ -66,7 +66,6 @@ class PrintMethods extends LoggingMethodsSinks {
   }
 }
 
-
 // Ref :: https://github.com/github/codeql/blob/main/java/ql/src/experimental/Security/CWE/CWE-532/SensitiveInfoLog.ql
 // Ref :: https://github.com/github/codeql/blob/main/java/ql/src/experimental/semmle/code/java/Logging.qll#L34
 class LoggerType extends RefType {
@@ -101,9 +100,8 @@ class LoggingMethods extends LoggingMethodsSinks {
   }
 }
 
-
 // ========== Configuration ==========
-class SensativeInformationLoggingConfig extends DataFlow::Configuration {
+class SensativeInformationLoggingConfig extends TaintTracking::Configuration {
   SensativeInformationLoggingConfig() { this = "SensativeInformationLoggingConfig" }
 
   override predicate isSource(DataFlow::Node source) {
@@ -111,10 +109,6 @@ class SensativeInformationLoggingConfig extends DataFlow::Configuration {
   }
 
   override predicate isSink(DataFlow::Node sink) { sink instanceof LoggingMethodsSinks }
-
-  override predicate isAdditionalFlowStep(DataFlow::Node node1, DataFlow::Node node2) {
-    TaintTracking::localTaintStep(node1, node2)
-  }
 }
 
 // ========== Query ==========
