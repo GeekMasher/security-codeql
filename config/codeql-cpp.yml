@@ -1,5 +1,7 @@
 name: "Custom CodeQL C/CPP Configuration"
 
+disable-default-queries: true
+
 queries:
   # Enable/Disable some extra C/CPP queries
   - name: Use @GeekMasher custom suite
