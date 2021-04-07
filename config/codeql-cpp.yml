@@ -5,4 +5,4 @@ disable-default-queries: true
 queries:
   # Enable/Disable some extra C/CPP queries
   - name: Use @GeekMasher custom suite
-    uses: GeekMasher/security-queries/cpp/suites/codeql-cpp.qls@develop
+    uses: GeekMasher/security-queries/cpp/suites/codeql-cpp.qls@main

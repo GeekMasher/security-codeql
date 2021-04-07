@@ -12,7 +12,7 @@ queries:
 
   # Enable/Disable some extra JavaScript/TypeScript queries
   - name: Use a custom Javascript suite
-    uses: GeekMasher/security-queries/javascript/suites/codeql-javascript.qls@develop
+    uses: GeekMasher/security-queries/javascript/suites/codeql-javascript.qls@main
 
 
 paths-ignore:
