@@ -2,20 +2,5 @@ name: "GeekMasher CodeQL Java Local Threat Model Configuration"
 
 queries:
   # Javascript security and extended and exclude a few unwanted queries
-  # - name: Use a custom Javascript suite
-  #   uses: GeekMasher/security-queries/config/codeql-java-local-suite.qls@main
-
-  - uses: github/codeql/java/ql/src/Security/CWE/CWE-601/UrlRedirectLocal.ql@main
-  - uses: github/codeql/java/ql/src/Security/CWE/CWE-113/ResponseSplittingLocal.ql@main
-  - uses: github/codeql/java/ql/src/Security/CWE/CWE-190/ArithmeticTaintedLocal.ql@main
-  - uses: github/codeql/java/ql/src/Security/CWE/CWE-089/SqlTaintedLocal.ql@main
-  - uses: github/codeql/java/ql/src/Security/CWE/CWE-129/ImproperValidationOfArrayConstructionLocal.ql@main
-  - uses: github/codeql/java/ql/src/Security/CWE/CWE-129/ImproperValidationOfArrayIndexLocal.ql@main
-  - uses: github/codeql/java/ql/src/Security/CWE/CWE-134/ExternallyControlledFormatStringLocal.ql@main
-  - uses: github/codeql/java/ql/src/Security/CWE/CWE-022/TaintedPathLocal.ql@main
-  - uses: github/codeql/java/ql/src/Security/CWE/CWE-078/ExecTaintedLocal.ql@main
-  - uses: github/codeql/java/ql/src/Security/CWE/CWE-681/NumericCastTaintedLocal.ql@main
-  - uses: github/codeql/java/ql/src/Security/CWE/CWE-079/XSSLocal.ql@main
-
-paths:
-  - '/**/'
+  - name: Use Java Local Threat Model queries
+    uses: GeekMasher/security-queries/java/suites/codeql-java-local.qls@main
