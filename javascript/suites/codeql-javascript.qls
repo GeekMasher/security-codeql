@@ -1,0 +1,9 @@
+
+- description: "CodeQL JavaScript GeekMasher extended suite"
+
+- import: codeql-suites/javascript-security-and-quality.qls
+  from: codeql-javascript
+
+- exclude:
+    query filename:
+    - MissingRateLimiting.ql

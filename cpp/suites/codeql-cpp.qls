@@ -1,0 +1,12 @@
+
+- description: "CodeQL C/CPP GeekMasher extended suite"
+
+- import: codeql-suites/cpp-security-extended.qls
+  from: codeql-cpp
+
+- qlpack: codeql-cpp
+- include:
+    id:
+      # https://github.com/github/codeql/blob/main/cpp/ql/src/Critical/MemoryMayNotBeFreed.ql
+      - cpp/memory-never-freed
+      - cpp/memory-may-not-be-freed
