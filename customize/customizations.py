@@ -1,21 +1,15 @@
 #!/usr/bin/env python3
 import os
+import glob
 import shutil
 import argparse
-
-# Actions Deafult: /opt/hostedtoolcache/CodeQL/*/x64/codeql/qlpacks
-CODEQL_QLPACKS_ACTIONS = os.path.join(
-    os.environ.get("CODEQL_DIST", "/opt/hostedtoolcache/CodeQL/*/x64/codeql"),
-    "qlpacks",
-)
-
 
 parser = argparse.ArgumentParser("AddCustomisations")
 parser.add_argument(
     "--debug", action="store_true", default=os.environ.get("DEBUG", False)
 )
 
-parser.add_argument("-p", "--codeql-qlpacks", default=CODEQL_QLPACKS_ACTIONS)
+parser.add_argument("-p", "--codeql-qlpacks")
 # TODO: Better way of finding the current action path
 parser.add_argument(
     "-c",
@@ -62,12 +56,29 @@ def findSecurityQueries(security_queries_path: str) -> dict:
 
 
 if __name__ == "__main__":
-    print("CodeQL QLPack :: " + arguments.codeql_qlpacks)
+    codeql_qlpack = None
 
-    if not arguments.codeql_qlpacks:
-        raise Exception("CodeQL QLPacks couldn't be found")
+    action_path_environment = os.path.join(os.environ.get("CODEQL_DIST", ""), "qlpacks")
 
-    codeql_customizations = findCodeQLCustomization(arguments.codeql_qlpacks)
+    if arguments.codeql_qlpacks:
+        if not os.path.exists(arguments.codeql_qlpacks):
+            print("Provided CodeQL QLPacks path is invalid")
+            exit(1)
+        codeql_qlpack = arguments.codeql_qlpacks
+    elif os.path.exists(action_path_environment):
+        codeql_qlpack = action_path_environment
+    else:
+        # Actions Deafult: /opt/hostedtoolcache/CodeQL/*/x64/codeql/qlpacks
+        paths = glob.glob("/opt/hostedtoolcache/CodeQL/*/x64/codeql/qlpacks")
+        if len(paths) == 0:
+            print("CodeQL QLPack couldn't be found")
+            exit(1)
+
+        codeql_qlpack = paths[0]
+
+    print("CodeQL QLPack :: " + codeql_qlpack)
+
+    codeql_customizations = findCodeQLCustomization(codeql_qlpack)
     security_queries = findSecurityQueries(arguments.customisation_path)
 
     if arguments.debug:
@@ -84,11 +95,7 @@ if __name__ == "__main__":
             print("CodeQL QLPack Customizations.qll file does not exist")
             continue
 
-        if arguments.debug:
-            print(
-                " {:>12} :: {} -> {}".format(
-                    lang, path, codeql_customizations.get(lang)
-                )
-            )
+        print("Adding Customization - " + lang)
+        print("  {} -> {}".format(path, codeql_customizations.get(lang)))
 
         shutil.copyfile(path, codeql_customizations.get(lang))
