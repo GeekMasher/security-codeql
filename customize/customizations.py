@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import os
-import glob
 import shutil
 import argparse
 
@@ -9,11 +8,6 @@ CODEQL_QLPACKS_ACTIONS = os.path.join(
     os.environ.get("CODEQL_DIST", "/opt/hostedtoolcache/CodeQL/*/x64/codeql"),
     "qlpacks",
 )
-
-if len(CODEQL_QLPACKS_ACTIONS) != 0:
-    CODEQL_QLPACKS_ACTIONS = CODEQL_QLPACKS_ACTIONS[0]
-else:
-    CODEQL_QLPACKS_ACTIONS = None
 
 
 parser = argparse.ArgumentParser("AddCustomisations")
