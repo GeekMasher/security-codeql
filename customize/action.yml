@@ -8,5 +8,5 @@ runs:
   using: "composite"
   steps:
     - run: |
-        python3 "${{ github.action_path }}/customizations.py" --codeql-qlpacks="${{ inputs.codeql-qlpacks }}"
+        python3 "${{ github.action_path }}/customizations.py"
       shell: bash

@@ -62,13 +62,14 @@ def findSecurityQueries(security_queries_path: str) -> dict:
 
 
 if __name__ == "__main__":
+    print("CodeQL QLPack :: " + arguments.codeql_qlpacks)
+
     if not arguments.codeql_qlpacks:
         raise Exception("CodeQL QLPacks couldn't be found")
 
     codeql_customizations = findCodeQLCustomization(arguments.codeql_qlpacks)
     security_queries = findSecurityQueries(arguments.customisation_path)
 
-    print("CodeQL QLPack :: " + arguments.codeql_qlpacks)
     if arguments.debug:
         print("CodeQL Customization Languages & Files:")
         for lang, path in codeql_customizations.items():
