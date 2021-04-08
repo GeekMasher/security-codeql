@@ -5,13 +5,11 @@ import shutil
 import argparse
 
 # Actions Deafult: /opt/hostedtoolcache/CodeQL/*/x64/codeql/qlpacks
-CODEQL_QLPACKS_ACTIONS = glob.glob(
-    os.path.join(
-        os.environ.get("RUNNER_TOOL_CACHE", "/opt/hostedtoolcache"),
-        "CodeQL/*/x64/codeql/qlpacks",
-    ),
-    recursive=False,
+CODEQL_QLPACKS_ACTIONS = os.path.join(
+    os.environ.get("CODEQL_DIST", "/opt/hostedtoolcache/CodeQL/*/x64/codeql"),
+    "qlpacks",
 )
+
 if len(CODEQL_QLPACKS_ACTIONS) != 0:
     CODEQL_QLPACKS_ACTIONS = CODEQL_QLPACKS_ACTIONS[0]
 else:
