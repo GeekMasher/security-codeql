@@ -1,0 +1,10 @@
+
+- description: "CodeQL JavaScript/TypeScript External API Suite"
+
+- import: codeql-suites/javascript-security-extended.qls
+  from: codeql-javascript
+
+- qlpack: codeql-javascript
+- include:
+    id:
+      - js/untrusted-data-to-external-api

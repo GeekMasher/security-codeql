@@ -1,0 +1,13 @@
+name: "GeekMasher CodeQL External API Configuration"
+
+disable-default-queries: true
+
+queries:
+  # C/CPP
+  - uses: GeekMasher/security-queries/cpp/suites/codeql-external-api.qls@main
+  # Java
+  - uses: GeekMasher/security-queries/java/suites/codeql-external-api.qls@main
+  # JavaScript/TypeScript
+  - uses: GeekMasher/security-queries/javascript/suites/codeql-external-api.qls@main
+  # Python
+  - uses: GeekMasher/security-queries/python/suites/codeql-external-api.qls@main
