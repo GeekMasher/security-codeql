@@ -51,6 +51,10 @@
         {
             "name": "CodeQL - GoLang Query Language",
             "path": "codeql-go"
+        },
+        {
+            "name": "Customisations Action",
+            "path": "customize"
         }
     ],
     "settings": {
