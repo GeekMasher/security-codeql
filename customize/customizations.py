@@ -17,7 +17,7 @@ else:
 
 
 parser = argparse.ArgumentParser("AddCustomisations")
-parser.add_argument("--debug", action="store_true")
+parser.add_argument("--debug", action="store_true", default=os.environ("DEBUG", False))
 
 parser.add_argument("-p", "--codeql-qlpacks", default=CODEQL_QLPACKS_ACTIONS)
 # TODO: Better way of finding the current action path
