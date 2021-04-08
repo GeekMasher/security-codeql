@@ -95,11 +95,7 @@ if __name__ == "__main__":
             print("CodeQL QLPack Customizations.qll file does not exist")
             continue
 
-        if arguments.debug:
-            print(
-                " {:>12} :: {} -> {}".format(
-                    lang, path, codeql_customizations.get(lang)
-                )
-            )
+        print("Adding Customization - " + lang)
+        print("  {} -> {}".format(path, codeql_customizations.get(lang)))
 
         shutil.copyfile(path, codeql_customizations.get(lang))
