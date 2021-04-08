@@ -25,6 +25,26 @@
             "path": "python"
         },
         {
+            "name": "Configuration",
+            "path": "config"
+        },
+        {
+            "name": "Scripts",
+            "path": "scripts"
+        },
+        {
+            "name": "Databases",
+            "path": "databases"
+        },
+        {
+            "name": "Sources / Code",
+            "path": "sources"
+        },
+        {
+            "name": "Results",
+            "path": "results"
+        },
+        {
             "name": "CodeQL - Query Languages",
             "path": "codeql"
         },
@@ -33,24 +53,8 @@
             "path": "codeql-go"
         },
         {
-            "name": "Scripts",
-            "path": "scripts"
-        },
-        {
-            "name": "Configuration",
-            "path": "config"
-        },
-        {
-            "name": "Databases",
-            "path": "databases"
-        },
-        {
-            "name": "Binaries",
-            "path": "bin"
-        },
-        {
-            "name": "[govwa source archive]",
-            "uri": "codeql-zip-archive://0-80/Users/geekmasher/Documents/development/security-queries/databases/govwa/src.zip"
+            "name": "Customisations Action",
+            "path": "customize"
         }
     ],
     "settings": {

@@ -1,0 +1,12 @@
+name: 'Customization CodeQL Action'
+description: 'Customization CodeQL Action'
+inputs:
+  codeql-qlpacks:
+    description: 'Path to the CodeQL Query Language Packs'
+    required: false
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        python3 "${{ github.action_path }}/customizations.py"
+      shell: bash
