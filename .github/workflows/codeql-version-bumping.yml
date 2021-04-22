@@ -2,9 +2,7 @@ name: CodeQL Version Bump
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: [ main, codeql-* ]
   schedule:
     - cron: '0 8 * * 1'
   workflow_dispatch:
