@@ -1,41 +1,59 @@
 #!/bin/bash
 
+CHANGES_NEEDED='false'
 
-# Get current local version
-get_local_version() {
-  git submodule status codeql |
-    awk -F" " '{print $1}'
+
+check_and_update() {
+  REPO=$1
+
+  echo "::group::Update $REPO"
+
+  # Check verions
+  CODEQL_LOCAL=$(git submodule status $REPO | awk -F" " '{print $1}')
+
+  CODEQL_LATEST=$(curl --silent "https://api.github.com/repos/github/$REPO/tags?per_page=1")
+  CODEQL_LATEST_SHA=$(echo $CODEQL_LATEST | jq -r '.[].commit.sha')
+  CODEQL_LATEST_VERSION=$(echo $CODEQL_LATEST | jq -r '.[].name')
+
+  echo "Local Version  :: $CODEQL_LOCAL"
+  echo "Latest Release :: $CODEQL_LATEST_SHA ($CODEQL_LATEST_VERSION)"
+
+  # Validate version
+  if [[ "$CODEQL_LOCAL" = "$CODEQL_LATEST_SHA" ]]; then
+    echo "No updates needed, matching versions"
+
+  else
+    # Update CodeQL verions
+    echo "Updating to latest release..."
+    CHANGES_NEEDED='true'
+
+    # Update submodule branch
+    git submodule set-branch -b $CODEQL_LATEST_VERSION $REPO
+    cd $REPO; git checkout $CODEQL_LATEST_SHA; cd ..
+
+    echo "Finished Updating"
+
+  fi
+
+  echo "::endgroup::"
+
 }
 
-# Get current remote version
-get_latest_release() {
-  curl --silent "https://api.github.com/repos/github/codeql/tags?per_page=1" |
-    jq -r '.[].commit.sha'
-}
 
-# Check verions
-CODEQL_LOCAL=$(get_local_version)
-CODEQL_LATEST=$(get_latest_release)
+check_and_update "codeql"
+check_and_update "codeql-go"
 
-echo "[+] Current Version :: $CODEQL_LOCAL"
-echo "[+] Latest Release  :: $CODEQL_LATEST"
 
-# Validate versions
-if [[ "$CODEQL_LOCAL" = "$CODEQL_LATEST" ]]; then
-  echo "[+] No updates needed, matching versions"
+if [[ "$CHANGES_NEEDED" = "true" ]]; then
 
-else
-  # Update CodeQL verions
-  echo "[+] Updating to latest release..."
-
-  # Update submodule branch
-  git submodule set-branch -b $CODEQL_LATEST codeql
-  git submodule set-branch -b $CODEQL_LATEST codeql-go
-
-  echo "[+] Updating remote submodules"
+  echo "Updating remote submodules"
   git submodule update --recursive --remote
 
-  echo "[+] New submodule status"
+  echo "New submodule status"
   git submodule status
 
+  echo '::set-output name=CHANGES_NEEDED::true'
+else
+  echo "No changes"
+  echo '::set-output name=CHANGES_NEEDED::false'
 fi

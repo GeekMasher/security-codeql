@@ -22,6 +22,7 @@ jobs:
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
+        if: ${{ env.CHANGES_NEEDED = 'true' }}
         with:
           commit-message: "Updating CodeQL Version to latest"
           branch: codeql/update-version
