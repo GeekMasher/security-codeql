@@ -17,8 +17,10 @@ get_latest_release() {
 # Check verions
 CODEQL_LOCAL=$(get_local_version)
 CODEQL_LATEST=$(get_latest_release)
-# CODEQL_LATEST=main
- 
+
+echo "[+] Current Version :: $CODEQL_LOCAL"
+echo "[+] Latest Release  :: $CODEQL_LATEST"
+
 # Validate versions
 if [[ "$CODEQL_LOCAL" = "$CODEQL_LATEST" ]]; then
 
@@ -26,14 +28,16 @@ if [[ "$CODEQL_LOCAL" = "$CODEQL_LATEST" ]]; then
     echo "[+] Matching versions :: $CODEQL_LOCAL" 
 else
     # Update CodeQL verions
-    echo "[+] New version avalible :: $CODEQL_LATEST"
+    echo "[+] Updating to latest release..."
 
     # Update submodule branch
     git submodule set-branch -b $CODEQL_LATEST codeql
     git submodule set-branch -b $CODEQL_LATEST codeql-go
 
+    echo "[+] Updating remote submodules"
     git submodule update --recursive --remote
 
+    echo "[+] New submodule status"
     git submodule status
 
 fi
