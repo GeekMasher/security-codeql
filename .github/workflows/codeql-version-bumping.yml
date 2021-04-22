@@ -13,8 +13,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      with:
-        submodules: 'true'
+        with:
+          submodules: 'true'
 
       - name: Running script to check and update CodeQL version
         run: |
