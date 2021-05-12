@@ -1,0 +1,7 @@
+name: "CodeQL Local Threat Model Configuration"
+
+disable-default-queries: true
+
+queries:
+  - name: Use Java Local Threat Model queries + extended suite
+    uses: GeekMasher/security-queries/java/suites/codeql-java-local.qls@main
