@@ -10,3 +10,9 @@
       # https://github.com/github/codeql/blob/main/cpp/ql/src/Critical/MemoryMayNotBeFreed.ql
       - cpp/memory-never-freed
       - cpp/memory-may-not-be-freed
+      
+      # https://github.com/github/codeql/blob/main/cpp/ql/src/Security/CWE/CWE-078/ExecTainted.ql
+      - cpp/command-line-injection
+
+      # https://github.com/github/codeql/blob/main/cpp/ql/src/Critical/UseAfterFree.ql
+      - cpp/use-after-free
