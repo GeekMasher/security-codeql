@@ -3,7 +3,7 @@
  * @description Deprecated Methods in MongoDB
  * @kind problem
  * @problem.severity note
- * @precision high
+ * @precision low
  * @id js/deprecated-methods
  * @tags security
  *       external/cwe/cwe-477
