@@ -5,7 +5,8 @@
  * @problem.severity note
  * @precision low
  * @id js/deprecated-methods
- * @tags security
+ * @tags reliability
+ *       maintainability
  *       external/cwe/cwe-477
  */
 
