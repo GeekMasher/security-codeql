@@ -1,0 +1,22 @@
+#   See https://help.semmle.com/codeql/codeql-cli/procedures/query-suites.html#filtering-the-queries-in-a-query-suite
+#   for additional ways to exclude queries
+
+- description: "CodeQL Local Threat Model Python Suite"
+
+- import: codeql-suites/python-security-extended.qls
+  from: codeql-python
+
+# - qlpack: codeql-python
+# - include:
+#     id:
+      # - python/path-injection-local
+      # - python/command-line-injection-local
+      # - python/xss-local
+      # - python/sql-injection-local
+      # - python/http-response-splitting-local
+      # - python/improper-validation-of-array-construction-local
+      # - python/improper-validation-of-array-index-local
+      # - python/tainted-format-string-local
+      # - python/tainted-arithmetic-local
+      # - python/unvalidated-url-redirection-local
+      # - python/tainted-numeric-cast-local
