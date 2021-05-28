@@ -1,4 +1,4 @@
-name: "GeekMasher CodeQL External API Configuration"
+name: "CodeQL External API Configuration"
 
 disable-default-queries: true
 
