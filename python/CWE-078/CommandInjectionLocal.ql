@@ -22,27 +22,35 @@ import semmle.python.dataflow.new.BarrierGuards
 import semmle.python.ApiGraphs
 import DataFlow::PathGraph
 
-// ========== Sinks ==========
-abstract private class LocalSinks extends DataFlow::Node { }
+// ========== Sources ==========
+abstract private class LocalSources extends DataFlow::Node { }
 
-// class STDInput extends LocalSinks {
-//   STDInput() {
-//     exists(CallNode call |
-//     // this = API::moduleImport("builtins").getMember("input").getACall()
-//       this = call.getFunction().refersTo(Object::builtin("input"))
-//     )
-//   }
-// }
+class STDInputSources extends LocalSources {
+  STDInputSources() {
+    exists(DataFlow::Node call |
+      (
+        // v = input("Input?")
+        call = API::builtin("input").getACall()
+        or
+        // https://docs.python.org/3/library/fileinput.html
+        call = API::moduleImport("fileinput").getMember("input").getACall()
+      ) and
+      this = call
+    )
+  }
+}
 
-class ArgumentsSources extends LocalSinks {
+class ArgumentsSources extends LocalSources {
   ArgumentsSources() {
     exists(DataFlow::Node call |
       (
-        // sys.args[1]
-        call = API::moduleImport("sys").getMember("argv").getAUse() or
+        // v = sys.args[1]
+        call = API::moduleImport("sys").getMember("argv").getAUse()
+        or
         // parser = argparse.ArgumentParser(__name__)
         // ...
         // arguments = parser.parse_args()
+        // v = arguments.t     # source
         call = API::moduleImport("argparse").getMember("ArgumentParser").getACall()
       ) and
       this = call
@@ -50,26 +58,42 @@ class ArgumentsSources extends LocalSinks {
   }
 }
 
-class EnviromentVariables extends LocalSinks {
-  EnviromentVariables() {
+class EnviromentVariablesSources extends LocalSources {
+  EnviromentVariablesSources() {
     exists(DataFlow::Node call |
       (
-        call = API::moduleImport("os").getMember("getenv").getACall() or
-        // TODO: os.environ['abc']
-        // call = API::moduleImport("os").getMember("environ").getAMember() or
-        call = API::moduleImport("os").getMember("environ").getMember("get").getACall()
+        // os.getenv('abc')
+        call = API::moduleImport("os").getMember("getenv").getACall()
+        or
+        // os.environ['abc']
+        call = API::moduleImport("os").getMember("environ").getAUse()
+        // or
+        // os.environ.get('abc')
+        // TODO: Seems to get us a duplicate due to the `.getAUse()`
+        // call = API::moduleImport("os").getMember("environ").getMember("get").getACall()
       ) and
       this = call
     )
   }
 }
 
+class FileReadSource extends LocalSources {
+  FileReadSource() {
+    exists(DataFlow::Node call |
+      (
+        // var = open('abc.txt')
+        call = API::builtin("open").getACall()
+      ) and
+      this = call
+    )
+  }
+}
 
 // ========== Configuration ==========
 class CommandInjectionConfiguration extends TaintTracking::Configuration {
   CommandInjectionConfiguration() { this = "LocalCommandInjectionConfiguration" }
 
-  override predicate isSource(DataFlow::Node source) { source instanceof LocalSinks }
+  override predicate isSource(DataFlow::Node source) { source instanceof LocalSources }
 
   override predicate isSink(DataFlow::Node sink) {
     sink = any(SystemCommandExecution e).getCommand() and
