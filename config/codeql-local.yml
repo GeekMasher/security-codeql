@@ -5,3 +5,7 @@ disable-default-queries: true
 queries:
   - name: Use Java Local Threat Model queries + extended suite
     uses: GeekMasher/security-queries/java/suites/codeql-java-local.qls@main
+
+  
+  # Python
+  - uses: GeekMasher/security-queries/python/CWE-078/CommandInjectionLocal.ql@main
