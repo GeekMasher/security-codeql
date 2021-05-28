@@ -25,6 +25,7 @@ import DataFlow::PathGraph
 // ========== Sources ==========
 abstract private class LocalSources extends DataFlow::Node { }
 
+// Standard Input from user
 class STDInputSources extends LocalSources {
   STDInputSources() {
     exists(DataFlow::Node call |
@@ -40,8 +41,9 @@ class STDInputSources extends LocalSources {
   }
 }
 
-class ArgumentsSources extends LocalSources {
-  ArgumentsSources() {
+// Command Line Arguments
+class CommandLineArgumentsSources extends LocalSources {
+  CommandLineArgumentsSources() {
     exists(DataFlow::Node call |
       (
         // v = sys.args[1]
@@ -58,6 +60,7 @@ class ArgumentsSources extends LocalSources {
   }
 }
 
+// Local Enviroment Variables
 class EnviromentVariablesSources extends LocalSources {
   EnviromentVariablesSources() {
     exists(DataFlow::Node call |
@@ -77,6 +80,7 @@ class EnviromentVariablesSources extends LocalSources {
   }
 }
 
+// Local File Reads
 class FileReadSource extends LocalSources {
   FileReadSource() {
     exists(DataFlow::Node call |
