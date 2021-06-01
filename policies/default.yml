@@ -13,11 +13,10 @@
 #   level: error
 
 codescanning:
-  level: none
+  level: error
  
 dependabot:
-  level: critical
+  level: high
 
 secretscanning:
   level: all
-  
