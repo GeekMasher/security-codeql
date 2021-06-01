@@ -5,6 +5,8 @@ codescanning:
     id:
       - java/sql-injection
   ignores:
+    id:
+      - js/log-injection
     name:
       - "Missing rate limiting"
 
