@@ -1,0 +1,21 @@
+
+codescanning:
+  level: error
+  conditions:
+    name:
+      - java/sql-injection
+ 
+dependabot:
+  level: high
+
+licensing:
+  conditions:
+    name:
+      - GPL-2.0
+      - GPL-3.0
+  ignores:
+    name:
+      - MIT License
+
+secretscanning:
+  level: all
