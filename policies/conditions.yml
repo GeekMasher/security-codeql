@@ -3,6 +3,8 @@ codescanning:
   level: error
   conditions:
     name:
+      - "Missing rate limiting"
+    id:
       - java/sql-injection
  
 dependabot:
