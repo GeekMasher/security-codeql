@@ -2,11 +2,12 @@
 codescanning:
   level: error
   conditions:
-    name:
-      - "Missing rate limiting"
     id:
       - java/sql-injection
- 
+  ignores:
+    name:
+      - "Missing rate limiting"
+
 dependabot:
   level: high
 
