@@ -12,6 +12,12 @@ codescanning:
 
 dependabot:
   level: high
+  conditions:
+    id:
+      - GHSA-446m-mv8f-q348
+  ignores:
+    id:
+      - GHSA-mh5c-679w-hh4r
 
 licensing:
   conditions:
