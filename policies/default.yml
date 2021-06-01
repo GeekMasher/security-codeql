@@ -12,7 +12,7 @@
 codescanning:
   level: error
  
- dependabot:
+dependabot:
   level: high
 
 secretscanning:
