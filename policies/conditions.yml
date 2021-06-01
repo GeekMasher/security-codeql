@@ -13,6 +13,7 @@ licensing:
     name:
       - GPL-2.0
       - GPL-3.0
+      - apache license 2.0
   ignores:
     name:
       - MIT License
