@@ -21,9 +21,15 @@ dependabot:
 
 licensing:
   conditions:
-    name:
+    id:
       - GPL-2.0
       - GPL-3.0
+    name:
+      - NPM/bson
+  warning:
+    id:
+      - Other
+      - NA
   ignores:
     name:
       - MIT License
