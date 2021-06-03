@@ -15,6 +15,9 @@ dependabot:
   conditions:
     id:
       - GHSA-446m-mv8f-q348
+  warning:
+    id:
+      - GHSA-446m-mv8f-q348
   ignores:
     id:
       - GHSA-mh5c-679w-hh4r
@@ -25,7 +28,10 @@ licensing:
       - GPL-2.0
       - GPL-3.0
     name:
+      # Including package manager
       - NPM/bson
+      # Wildcard of package manager
+      - tunnel-agent
   warning:
     id:
       - Other
