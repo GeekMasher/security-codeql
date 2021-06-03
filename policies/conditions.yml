@@ -23,13 +23,12 @@ dependabot:
       - GHSA-mh5c-679w-hh4r
 
 licensing:
+  import: 'rel/file/path'
   conditions:
     id:
       - GPL-2.0
       - GPL-3.0
     name:
-      # Including package manager
-      - NPM/bson
       # Wildcard of package manager
       - tunnel-agent
   warning:
