@@ -2,41 +2,40 @@
 codescanning:
   level: error
   conditions:
-    id:
+    ids:
       - java/sql-injection
   ignores:
-    id:
+    ids:
       - js/log-injection
-    name:
+    names:
       - "Missing rate limiting"
 
 dependabot:
   level: high
   conditions:
-    id:
+    ids:
       - GHSA-446m-mv8f-q348
   warning:
-    id:
+    ids:
       - GHSA-446m-mv8f-q348
   ignores:
-    id:
+    ids:
       - GHSA-mh5c-679w-hh4r
 
 licensing:
-  import: 'rel/file/path'
   conditions:
-    id:
+    ids:
       - GPL-2.0
       - GPL-3.0
-    name:
+    names:
       # Wildcard of package manager
       - tunnel-agent
   warning:
-    id:
+    ids:
       - Other
       - NA
   ignores:
-    name:
+    names:
       - MIT License
 
 secretscanning:
