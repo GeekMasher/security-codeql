@@ -15,7 +15,7 @@ dependabot:
   conditions:
     ids:
       - GHSA-446m-mv8f-q348
-  warning:
+  warnings:
     ids:
       - GHSA-446m-mv8f-q348
   ignores:
@@ -30,7 +30,7 @@ licensing:
     names:
       # Wildcard of package manager
       - tunnel-agent
-  warning:
+  warnings:
     ids:
       - Other
       - NA
