@@ -1,0 +1,21 @@
+
+codescanning:
+  remediate:
+    errors: 7
+    warnings: 30
+    # all: 90
+
+dependabot:
+  level: high
+  remediate:
+    high: 7
+
+licensing:
+  conditions:
+    ids:
+      - GPL-*
+      - LGPL-*
+      - AGPL-*
+
+secretscanning:
+  level: all
