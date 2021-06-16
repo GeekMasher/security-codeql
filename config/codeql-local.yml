@@ -11,4 +11,4 @@ queries:
   - uses: GeekMasher/security-queries/python/CWE-078/CommandInjectionLocal.ql@main
   - uses: GeekMasher/security-queries/python/CWE-089/SqlInjectionLocal.ql@main
   - uses: GeekMasher/security-queries/python/CWE-094/CodeInjectionLocal.ql@main
-  - uses: GeekMasher/security-queries/python/CWE-078/CWE-502/UnsafeDeserializationLocal.ql@main
+  - uses: GeekMasher/security-queries/python/CWE-502/UnsafeDeserializationLocal.ql@main
