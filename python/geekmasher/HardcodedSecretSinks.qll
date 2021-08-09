@@ -34,6 +34,11 @@ Expr getAssignStmtByKey(AssignStmt assign, string key) {
 
 Expr getAnyAssignStmtByKey(string key) { result = getAssignStmtByKey(any(AssignStmt a), key) }
 
+
+
+// =========================
+// Web Frameworks
+// =========================
 class FlaskCredentialSink extends CredentialSink {
   FlaskCredentialSink() {
     exists(API::Node node |
@@ -56,5 +61,40 @@ class FlaskCredentialSink extends CredentialSink {
       node = Flask::FlaskApp::instance().getMember("config").getMember("update") and
       this = DataFlow::exprNode(node.getACall().getArgByName("SECRET_KEY").asExpr())
     )
+  }
+}
+
+// =========================
+// Databases
+// =========================
+
+class MySqlSink extends CredentialSink {
+  MySqlSink() {
+    this = API::moduleImport("mysql.connector").getMember("connect").getACall().getArgByName("password")
+  }
+}
+
+class AsyncpgSink extends CredentialSink {
+  AsyncpgSink() {
+    this = API::moduleImport("asyncpg").getMember("connect").getACall().getArgByName("password")
+  }
+}
+
+class PsycopgSink extends CredentialSink {
+  PsycopgSink() {
+    this = API::moduleImport("psycopg2").getMember("connect").getACall().getArgByName("password")
+  }
+}
+
+
+// =========================
+// Utils
+// =========================
+
+class RequestsSink extends CredentialSink {
+  RequestsSink() {
+    // from requests.auth import HTTPBasicAuth
+    // auth = HTTPBasicAuth('user', 'mysecretpassword')
+    this = API::moduleImport("requests.auth").getMember("HTTPBasicAuth").getACall().getArg(1)
   }
 }
