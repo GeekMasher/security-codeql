@@ -84,6 +84,24 @@ class PsycopgSink extends CredentialSink {
   }
 }
 
+class AioredisSink extends CredentialSink {
+  AioredisSink() {
+    this = API::moduleImport("aioredis").getMember("create_connection").getACall().getArgByName("password")
+    or
+    this = API::moduleImport("aioredis").getMember("create_pool").getACall().getArgByName("password")
+    or
+    this = API::moduleImport("aioredis").getMember("create_redis").getACall().getArgByName("password")
+    or
+    // redis = await aioredis.create_redis_pool(
+    //   'redis://localhost', password='sEcRet')
+    this = API::moduleImport("aioredis").getMember("create_redis_pool").getACall().getArgByName("password")
+    or
+    this = API::moduleImport("aioredis.sentinel").getMember("create_sentinel").getACall().getArgByName("password")
+    or
+    this = API::moduleImport("aioredis.sentinel").getMember("create_sentinel_pool").getACall().getArgByName("password")
+  }
+}
+
 // =========================
 // Utils
 // =========================
