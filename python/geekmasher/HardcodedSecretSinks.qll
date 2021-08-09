@@ -34,8 +34,6 @@ Expr getAssignStmtByKey(AssignStmt assign, string key) {
 
 Expr getAnyAssignStmtByKey(string key) { result = getAssignStmtByKey(any(AssignStmt a), key) }
 
-
-
 // =========================
 // Web Frameworks
 // =========================
@@ -67,10 +65,10 @@ class FlaskCredentialSink extends CredentialSink {
 // =========================
 // Databases
 // =========================
-
 class MySqlSink extends CredentialSink {
   MySqlSink() {
-    this = API::moduleImport("mysql.connector").getMember("connect").getACall().getArgByName("password")
+    this =
+      API::moduleImport("mysql.connector").getMember("connect").getACall().getArgByName("password")
   }
 }
 
@@ -86,15 +84,32 @@ class PsycopgSink extends CredentialSink {
   }
 }
 
-
 // =========================
 // Utils
 // =========================
-
 class RequestsSink extends CredentialSink {
   RequestsSink() {
     // from requests.auth import HTTPBasicAuth
     // auth = HTTPBasicAuth('user', 'mysecretpassword')
     this = API::moduleImport("requests.auth").getMember("HTTPBasicAuth").getACall().getArg(1)
+  }
+}
+
+class PyJwtSink extends CredentialSink {
+  PyJwtSink() {
+    // import jwt
+    // encoded = jwt.encode({"some": "payload"}, "secret", algorithm="HS256")
+    this = API::moduleImport("jwt").getMember("encode").getACall().getArg(1)
+    or
+    // decode = jwt.decode(encoded, "secret", algorithm="HS256")
+    this = API::moduleImport("jwt").getMember("decode").getACall().getArg(1)
+  }
+}
+
+class PyOtpSink extends CredentialSink {
+  PyOtpSink() {
+    // import pyotp
+    // totp = pyotp.TOTP('base32secret3232')
+    this = API::moduleImport("pyotp").getMember("TOTP").getACall().getArg(1)
   }
 }
