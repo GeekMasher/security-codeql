@@ -16,6 +16,8 @@ This folder contains scripts that I use to make my life easier (all store in the
 
 | Name (path) | Description |
 | :---------- | :---------- |
+| [`update.sh`](./scripts/update.sh) | Updates CodeQL CLI automatically |
+| [`scan.py`](./scripts/scan.py)   | Script to automatically create and store CodeQL databases. VSCode tasks for workspace available. | 
 
 
 ### `customize` Action
