@@ -53,6 +53,10 @@
             "path": "codeql-go"
         },
         {
+            "name": "CodeQL - Binaries",
+            "path": "bin"
+        },
+        {
             "name": "Customisations Action",
             "path": "customize"
         }
@@ -62,6 +66,91 @@
         "codeQL.runningQueries.maxQueries": 50,
         "codeQL.runningQueries.memory": 8192,
         "codeQL.runningQueries.numberOfThreads": 4,
-        "codeQL.runningQueries.debug": true
+        "codeQL.runningQueries.debug": true,
+        "python.testing.pytestEnabled": false,
+        "python.testing.nosetestsEnabled": false,
+        "python.testing.unittestEnabled": false,
+        "python.formatting.provider": "black",
+        "python.testing.promptToConfigure": false
+    },
+    "tasks": {
+        "version": "2.0.0",
+        "tasks": [
+            {
+                "label": "Run CodeQL Scan",
+                "type": "shell",
+                "command": "python3 ./scripts/scan.py --name ${input:scanningSourceCode} --language ${input:scanningLanguage}",
+                "group": "build",
+                "presentation": {
+                    "reveal": "always"
+                },
+                "options": {
+                    "cwd": ".."
+                },
+                "problemMatcher": []
+            },
+            {
+                "label": "Run CodeQL Scan on Repository",
+                "type": "shell",
+                "command": "python3 ./scripts/scan.py --repo ${input:scanningRepo} --language ${input:scanningLanguage}",
+                "group": "build",
+                "presentation": {
+                    "reveal": "always"
+                },
+                "options": {
+                    "cwd": ".."
+                },
+                "problemMatcher": []
+            },
+            {
+                "label": "Download SARIF File from GitHub",
+                "type": "shell",
+                "command": "python3 ./scripts/scan.py --repo ${input:scanningRepo} --branch ${input:scanningRepoBranch} --download-sarif",
+                "group": "build",
+                "presentation": {
+                    "reveal": "always"
+                },
+                "options": {
+                    "cwd": ".."
+                },
+                "problemMatcher": []
+            },
+            {
+                "label": "Update CodeQL",
+                "type": "shell",
+                "command": "./scripts/update.sh",
+                "group": "build",
+                "presentation": {
+                    "reveal": "always"
+                },
+                "options": {
+                    "cwd": ".."
+                },
+                "problemMatcher": []
+            }
+        ],
+        "inputs": [
+            {
+                "id": "scanningSourceCode",
+                "type": "promptString",
+                "description": "The Source code folder the code you want to scan is"
+            },
+            {
+                "id": "scanningLanguage",
+                "type": "promptString",
+                "description": "CodeQL Language"
+            },
+            {
+                "id": "scanningRepo",
+                "type": "promptString",
+                "description": "Repository"
+            },
+            {
+                "id": "scanningRepoBranch",
+                "type": "promptString",
+                "default": "main",
+                "description": "Repository Branch"
+            }
+        ]
     }
 }
