@@ -6,6 +6,7 @@
 /codeql-runner
 /scripts/testing
 **/test.ql
+**/tests/
 
 /bin
 
