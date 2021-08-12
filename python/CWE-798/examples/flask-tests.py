@@ -33,7 +33,7 @@ def application4():
     app = Flask(__name__)
     app.config.update(
         TESTING=True,
-        # SECURITY WARNING: Hardcoded secret keyapp.config.update(
+        # SECURITY WARNING: Hardcoded secret key
         SECRET_KEY="WXYZ"
     )
 
@@ -42,7 +42,7 @@ def application4():
 
 def safeApplication1():
     app = Flask(__name__)
-    # SECURITY WARNING: Hardcoded secret key
+    # SAFE
     app.secret_key = os.environ.get('SECRET_KEY')
 
     app.run()
