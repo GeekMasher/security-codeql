@@ -40,6 +40,15 @@ def application4():
     app.run()
 
 
+def application5():
+    app = Flask(__name__)
+    # SECURITY WARNING: Hardcoded secret key
+    # settings file contains secrets
+    app.config.from_object('hardcoded.flask_settings')
+
+    app.run()
+
+
 def safeApplication1():
     app = Flask(__name__)
     # SAFE
@@ -52,3 +61,7 @@ if __name__ == "__main__":
     application1()
     application2()
     application3()
+    application4()
+    application5()
+
+    safeApplication1()
