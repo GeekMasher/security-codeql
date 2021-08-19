@@ -1,0 +1,25 @@
+name: High Threat Model Policy
+
+codescanning:
+  level: warnings
+
+# Dependency Security Alters
+dependabot:
+  level: warnings
+
+# Dependency Licensing Alerts
+licensing:
+  conditions:
+    ids:
+      - GPL-*
+      - LGPL-*
+      - AGPL-*
+
+  warnings:
+    # Warning is the dependency isn't known
+    ids:
+      - Other
+      - NA
+
+secretscanning:
+  level: all
