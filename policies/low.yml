@@ -3,10 +3,10 @@ codescanning:
   level: error
   conditions:
     ids:
-      - */sql-injection
-      - */xss
-      - */stored-xss
-      - */command-line-injection
+      - "*/sql-injection"
+      - "*/xss"
+      - "*/stored-xss"
+      - "*/command-line-injection"
   ignores:
     ids:
       - js/log-injection
@@ -19,9 +19,9 @@ dependabot:
 licensing:
   conditions:
     ids:
-      - GPL-*
-      - LGPL-*
-      - AGPL-*
+      - "GPL-*"
+      - "LGPL-*"
+      - "AGPL-*"
 
 secretscanning:
   level: all
