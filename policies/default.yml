@@ -1,28 +1,17 @@
-
-## Security Levels
-# - critical
-# - high
-# - error
-# - medium
-# - moderate
-# - low
-# - warning
-# - notes
-
-# general:
-#   level: error
+name: Deafult Policy
 
 codescanning:
   level: error
  
 dependabot:
-  level: high
+  level: moderate
 
 licensing:
   conditions:
     ids:
-      - GPL-2.0
-      - GPL-3.0
+      - GPL-*
+      - LGPL-*
+      - AGPL-*
 
 secretscanning:
   level: all
