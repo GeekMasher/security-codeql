@@ -1,0 +1,11 @@
+security-queries:
+  repository: GeekMasher/security-queries
+  level: low
+
+pixi:
+  repository: GeekMasher/Pixi
+  level: high
+
+juiceshop:
+  repository: bkimminich/juice-shop
+  level: high
