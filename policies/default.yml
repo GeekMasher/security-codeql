@@ -13,5 +13,10 @@ licensing:
       - LGPL-*
       - AGPL-*
 
+dependencies:
+  conditions:
+    names:
+      - 'npm://gulp-clean-css'
+
 secretscanning:
   level: all
