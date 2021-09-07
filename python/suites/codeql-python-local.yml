@@ -3,9 +3,6 @@
 
 - description: "CodeQL Local Threat Model Python Suite"
 
+- qlpack: geekmasher-queries-python
 - include:
-    kind:
-    - local
-
-- import: codeql-suites/python-security-extended.qls
-  from: codeql-java
+    tags contain: local

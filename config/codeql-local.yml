@@ -8,7 +8,5 @@ queries:
     uses: GeekMasher/security-queries/java/suites/codeql-java-local.qls@main
 
   # Python
-  - uses: GeekMasher/security-queries/python/CWE-078/CommandInjectionLocal.ql@main
-  - uses: GeekMasher/security-queries/python/CWE-089/SqlInjectionLocal.ql@main
-  - uses: GeekMasher/security-queries/python/CWE-094/CodeInjectionLocal.ql@main
-  - uses: GeekMasher/security-queries/python/CWE-502/UnsafeDeserializationLocal.ql@main
+  - name: Use Python Local Threat Model queries + extended suite
+    uses: GeekMasher/security-queries/python/suites/codeql-python-local.qls@main
