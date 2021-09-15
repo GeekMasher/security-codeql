@@ -20,8 +20,6 @@ private string getCredencialString() {
 }
 
 class ConfigProperties extends ConfigPair {
-  ConfigProperties() { this.getFile().getBaseName() = "application.properties" }
-
   string getValue() { result = this.getValueElement().getValue().trim() }
 }
 
