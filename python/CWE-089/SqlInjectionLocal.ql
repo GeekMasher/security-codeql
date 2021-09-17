@@ -18,6 +18,7 @@ import semmle.python.dataflow.new.DataFlow
 import semmle.python.dataflow.new.TaintTracking
 import semmle.python.Concepts
 import semmle.python.dataflow.new.BarrierGuards
+import DataFlow::PathGraph
 import geekmasher.LocalSources
 
 /**
