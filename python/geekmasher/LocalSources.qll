@@ -66,8 +66,14 @@ class EnviromentVariablesSources extends LocalSources {
 class FileReadSource extends LocalSources {
   FileReadSource() {
     exists(DataFlow::Node call |
-      // var = open('abc.txt')
-      call = API::builtin("open").getACall() and
+      (
+        // https://docs.python.org/3/library/functions.html#open
+        // var = open('abc.txt')
+        call = API::builtin("open").getACall()
+        or
+        // https://docs.python.org/3/library/os.html#os.open
+        call = API::moduleImport("os").getMember("open").getACall()
+      ) and
       this = call
     )
   }

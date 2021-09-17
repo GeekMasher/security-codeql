@@ -18,8 +18,34 @@ import semmle.python.dataflow.new.TaintTracking
 import semmle.python.Concepts
 import semmle.python.dataflow.new.RemoteFlowSources
 import semmle.python.dataflow.new.BarrierGuards
+import semmle.python.ApiGraphs
 import DataFlow::PathGraph
+// Extending library
+import semmle.python.security.dataflow.UnsafeDeserializationCustomizations
+// Internal library
 import geekmasher.LocalSources
+
+// https://github.com/github/codeql/blob/main/python/ql/lib/semmle/python/security/injection/Pickle.qll
+class CustomUnsafeDeserializationSinks extends UnsafeDeserialization::Sink {
+  CustomUnsafeDeserializationSinks() {
+    exists(DataFlow::Node call |
+      (
+        // https://docs.python.org/3/library/pickle.html#pickle.load
+        // https://github.com/github/codeql/blob/main/python/ql/lib/semmle/python/security/injection/Pickle.qll
+        call = API::moduleImport("pickle").getMember("load").getACall()
+        or
+        // https://docs.python.org/3/library/marshal.html#marshal.load
+        // https://github.com/github/codeql/blob/main/python/ql/lib/semmle/python/security/injection/Marshal.qll
+        call = API::moduleImport("marshal").getMember("load").getACall()
+        or
+        // https://docs.python.org/3/library/shelve.html#shelve.open
+        call = API::moduleImport("shelve").getMember("open").getACall()
+
+      ) and
+      this = call
+    )
+  }
+}
 
 /**
  * A taint-tracking configuration for detecting arbitrary code execution
