@@ -5,7 +5,6 @@
  * @kind path-problem
  * @problem.severity error
  * @security-severity 10.0
- * @sub-severity high
  * @precision low
  * @id py/code-injection
  * @tags security

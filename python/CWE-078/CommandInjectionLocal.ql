@@ -4,14 +4,13 @@
  *              user to change the meaning of the command.
  * @kind path-problem
  * @problem.severity error
- * @sub-severity high
+ * @security-severity 10.0
  * @precision low
  * @id py/command-line-injection
- * @tags correctness
- *       security
- *       external/owasp/owasp-a1
+ * @tags security
  *       external/cwe/cwe-078
  *       external/cwe/cwe-088
+ *       external/owasp/owasp-a1
  *       local
  */
 

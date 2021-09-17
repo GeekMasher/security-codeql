@@ -54,11 +54,8 @@ class EnviromentVariablesSources extends LocalSources {
         call = API::moduleImport("os").getMember("getenv").getACall()
         or
         // os.environ['abc']
-        call = API::moduleImport("os").getMember("environ").getAUse()
-        // or
         // os.environ.get('abc')
-        // TODO: Seems to get us a duplicate due to the `.getAUse()`
-        // call = API::moduleImport("os").getMember("environ").getMember("get").getACall()
+        call = API::moduleImport("os").getMember("environ").getAUse()
       ) and
       this = call
     )
