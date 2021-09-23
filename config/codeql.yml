@@ -15,6 +15,10 @@ queries:
   - name: Use a custom JavaScript/TypeScript suite
     uses: GeekMasher/security-queries/javascript/suites/codeql-javascript.qls@main
 
+  # Enable/Disable some extra Python queries
+  - name: Use a custom Python suite
+    uses: GeekMasher/security-queries/python/suites/codeql-python.qls@main
+
 
 paths-ignore:
   # JavaScript
