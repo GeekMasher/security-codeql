@@ -1,6 +1,6 @@
 name: "GeekMasher CodeQL Configuration"
 
-# disable-default-queries: true
+disable-default-queries: true
 
 queries:
   # Enable/Disable some extra C/CPP queries
