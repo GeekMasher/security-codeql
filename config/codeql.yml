@@ -24,9 +24,10 @@ paths-ignore:
   # JavaScript
   - 'node_modules'
   - '**/*.test.js'
-  - '**/bootstrap.js'
-  - '**/bootstrap.min.js'
-  - '**/jquery-*.js'
+  # JavaScript Frameworks/Libraries
+  # - '**/bootstrap.js'
+  # - '**/bootstrap.min.js'
+  # - '**/jquery-*.js'
 
 paths:
   - '/**/'
