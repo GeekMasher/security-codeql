@@ -1,6 +1,6 @@
 name: "GeekMasher CodeQL Configuration"
 
-disable-default-queries: true
+# disable-default-queries: true
 
 queries:
   # Use all queries in this repo
@@ -10,8 +10,12 @@ queries:
   - name: Use @GeekMasher custom suite
     uses: GeekMasher/security-queries/cpp/suites/codeql-cpp.qls@main
 
+  # Enable/Disable some extra Java queries
+  - name: Use a custom Java suite
+    uses: GeekMasher/security-queries/java/suites/codeql-java.qls@main
+
   # Enable/Disable some extra JavaScript/TypeScript queries
-  - name: Use a custom Javascript suite
+  - name: Use a custom JavaScript/TypeScript suite
     uses: GeekMasher/security-queries/javascript/suites/codeql-javascript.qls@main
 
 
