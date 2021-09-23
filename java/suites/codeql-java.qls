@@ -7,3 +7,4 @@
 - include:
     id:
       - java/sensative-information-logging
+      - java/hardcoded-password-field
