@@ -1,7 +1,7 @@
 
 - description: "CodeQL JavaScript GeekMasher extended suite"
 
-- import: codeql-suites/javascript-security-and-quality.qls
+- import: codeql-suites/javascript-security-extended.qls
   from: codeql-javascript
 
 - exclude:
