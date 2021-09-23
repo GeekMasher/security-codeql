@@ -1,0 +1,8 @@
+#   See https://help.semmle.com/codeql/codeql-cli/procedures/query-suites.html#filtering-the-queries-in-a-query-suite
+#   for additional ways to exclude queries
+
+- description: "CodeQL Python Suite"
+
+- import: codeql-suites/python-security-extended.qls
+  from: codeql-python
+  
