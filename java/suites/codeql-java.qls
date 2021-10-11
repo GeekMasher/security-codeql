@@ -6,6 +6,8 @@
 - qlpack: geekmasher-queries-java
 - include:
     id:
+      # Support JSP
+      - java/custom-xss
       - java/sensative-information-logging
       - java/hardcoded-password-field
 
