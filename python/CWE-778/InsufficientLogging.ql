@@ -1,8 +1,8 @@
 /**
- * @name Insuffcient Logging
- * @description Insuffcient Logging
+ * @name Insufficient Logging
+ * @description Insufficient Logging
  * @kind problem
- * @id py/insuffcient-logging
+ * @id py/insufficient-logging
  * @problem.severity warning
  * @security-severity 1.0
  * @sub-severity low

@@ -1,14 +1,14 @@
 /**
- * @name Insuffcient Logging
- * @description Insuffcient Logging
+ * @name Dangerous Functions
+ * @description Dangerous Functions
  * @kind problem
- * @id py/insuffcient-logging
+ * @id py/dangerous-functions
  * @problem.severity warning
- * @security-severity 1.0
+ * @security-severity 2.5
  * @sub-severity low
  * @precision low
  * @tags security
- *       external/cwe/cwe-778
+ *       external/cwe/cwe-676
  */
 
 import python
