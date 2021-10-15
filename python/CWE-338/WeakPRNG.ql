@@ -1,5 +1,5 @@
 /**
- * @name Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)
+ * @name Use of Cryptographically Weak Pseudo-Random Number Generator
  * @description Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG).
  * @kind problem
  * @id py/weak-cryptographic-algorithm
@@ -13,10 +13,7 @@
  */
 
 import python
-import semmle.python.dataflow.new.DataFlow
-import semmle.python.dataflow.new.TaintTracking
 import semmle.python.ApiGraphs
-import DataFlow::PathGraph
 
 abstract class RandomNumberGeneratorSinks extends DataFlow::Node { }
 
