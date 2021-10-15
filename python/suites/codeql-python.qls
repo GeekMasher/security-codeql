@@ -5,4 +5,16 @@
 
 - import: codeql-suites/python-security-extended.qls
   from: codeql-python
-  
+
+- qlpack: codeql-python
+- include:
+    id:
+      - py/template-injection
+      - py/xslt-injection
+      - py/ip-address-spoofing
+      - py/xpath-injection
+      - py/nosql-injection
+      # LDAP
+      - py/ldap-injection
+      - py/improper-ldap-auth
+      - py/insecure-ldap-auth
