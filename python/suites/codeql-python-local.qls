@@ -6,3 +6,6 @@
 - qlpack: geekmasher-queries-python
 - include:
     tags contain: local
+
+- import: codeql-suites/python-security-extended.qls
+  from: codeql-python
