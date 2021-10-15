@@ -5,6 +5,7 @@
  * @kind path-problem
  * @problem.severity error
  * @security-severity 10.0
+ * @sub-severity critical
  * @precision low
  * @id py/sql-injection
  * @tags security

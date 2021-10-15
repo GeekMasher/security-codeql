@@ -5,6 +5,7 @@
  * @kind path-problem
  * @problem.severity error
  * @security-severity 10.0
+ * @sub-severity critical
  * @precision low
  * @id py/code-injection
  * @tags security
@@ -14,6 +15,7 @@
  *       external/cwe/cwe-116
  *       local
  */
+
 import python
 import semmle.python.dataflow.new.DataFlow
 import semmle.python.dataflow.new.TaintTracking

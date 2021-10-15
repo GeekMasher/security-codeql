@@ -5,6 +5,7 @@
  * @problem.severity error
  * @security-severity 5.9
  * @precision medium
+ * @sub-severity medium
  * @id py/hardcoded-credentials
  * @tags security
  *       external/cwe/cwe-259

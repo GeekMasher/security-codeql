@@ -5,6 +5,7 @@
  * @id py/unsafe-deserialization
  * @problem.severity error
  * @security-severity 8.0
+ * @sub-severity high
  * @precision low
  * @tags external/cwe/cwe-502
  *       security
@@ -40,7 +41,6 @@ class CustomUnsafeDeserializationSinks extends UnsafeDeserialization::Sink {
         or
         // https://docs.python.org/3/library/shelve.html#shelve.open
         call = API::moduleImport("shelve").getMember("open").getACall()
-
       ) and
       this = call
     )

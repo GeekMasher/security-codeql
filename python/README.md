@@ -18,12 +18,12 @@
 <!-- AUTOMATION-QUERIES -->
 | Name | Severity | Path |
 | :--- | :------- | :--- |
-| `Code injection` | Unknown / 10.0 | `python/CWE-094/CodeInjectionLocal.ql` |
-| `SQL query built from user-controlled sources` | Unknown / 10.0 | `python/CWE-089/SqlInjectionLocal.ql` |
-| `Deserializing untrusted input` | Unknown / 8.0 | `python/CWE-502/UnsafeDeserializationLocal.ql` |
-| `Uncontrolled command line` | Unknown / 10.0 | `python/CWE-078/CommandInjectionLocal.ql` |
+| `Code injection` | Critical / 10.0 | `python/CWE-094/CodeInjectionLocal.ql` |
+| `SQL query built from user-controlled sources` | Critical / 10.0 | `python/CWE-089/SqlInjectionLocal.ql` |
+| `Deserializing untrusted input` | High / 8.0 | `python/CWE-502/UnsafeDeserializationLocal.ql` |
+| `Uncontrolled command line` | Critical / 10.0 | `python/CWE-078/CommandInjectionLocal.ql` |
 | `Use of a broken or weak cryptographic algorithm` | Medium / 5.0 | `python/CWE-327/WeakHashingAlgorithms.ql` |
-| `Hard-coded credentials` | Unknown / 5.9 | `python/CWE-798/HardcodedFrameworkSecrets.ql` |
+| `Hard-coded credentials` | Medium / 5.9 | `python/CWE-798/HardcodedFrameworkSecrets.ql` |
 
 
 <!-- AUTOMATION-QUERIES -->
