@@ -1,7 +1,7 @@
 #   See https://help.semmle.com/codeql/codeql-cli/procedures/query-suites.html#filtering-the-queries-in-a-query-suite
 #   for additional ways to exclude queries
 
-- description: "CodeQL Local Threat Model Java Suite"
+- description: "GeekMasher's CodeQL Java Suite"
 
 - qlpack: geekmasher-queries-java
 - include:
