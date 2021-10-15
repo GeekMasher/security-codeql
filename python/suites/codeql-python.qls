@@ -3,6 +3,8 @@
 
 - description: "CodeQL Python Suite"
 
+- qlpack: geekmasher-queries-python
+
 - import: codeql-suites/python-security-extended.qls
   from: codeql-python
 

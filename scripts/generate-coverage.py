@@ -61,7 +61,7 @@ def getFormattedString(input: str, **data: dict):
     return input.format(**data)
 
 
-def createTable(suites: dict, language: str):
+def createSuitesTable(suites: dict, language: str):
     RETVAL = ""
     RETVAL += "| Name | Queries Count | Description | Path |\n"
     RETVAL += "| :--- | :---- | :--- | :--- |\n"
@@ -88,13 +88,53 @@ def createTable(suites: dict, language: str):
     return RETVAL
 
 
-def createMarkdown(markdown_path: str, content: str):
-    PLACEHOLDER = "<!-- AUTOMATION-SUITES -->"
+def createQueryTable(suites: dict, language: str):
+    full_list = []
+    RETVAL = ""
+    RETVAL += "| Name | Severity | Path |\n"
+    RETVAL += "| :--- | :------- | :--- |\n"
+
+    # for suite, queries in suites.items():
+    for suite in default_suite_order:
+        queries = suites.get(suite)
+        if not queries:
+            continue
+        for query in queries:
+            if query.startswith("codeql"):
+                continue
+            if query in full_list:
+                continue
+
+            query_name = "Unknown"
+            query_severity = "Unknown"
+            query_severity_scrore = "1.0"
+
+            with open(query, "r") as handle:
+                for line in handle:
+                    if line.startswith(" * @name"):
+                        query_name = line.replace(" * @name ", "").strip()
+                    if line.startswith(" * @sub-severity"):
+                        query_severity = line.replace(" * @sub-severity ", "").strip()
+                    if line.startswith(" * @security-severity"):
+                        query_severity_scrore = line.replace(
+                            " * @security-severity ", ""
+                        ).strip()
+
+            RETVAL += f"| `{query_name}` | {query_severity.title()} / {query_severity_scrore} | `{query}` |\n"
+
+            full_list.append(query)
+
+    return RETVAL
+
+
+def createMarkdown(
+    markdown_path: str, content: str, placeholder: str = "<!-- AUTOMATION -->"
+):
     with open(markdown_path, "r") as handle:
         file_data = handle.read()
 
-    start_location = file_data.index(PLACEHOLDER) + len(PLACEHOLDER)
-    end_location = file_data.index(PLACEHOLDER, start_location)
+    start_location = file_data.index(placeholder) + len(placeholder)
+    end_location = file_data.index(placeholder, start_location)
 
     print("Inserting data between: {} <-> {}".format(start_location, end_location))
 
@@ -158,6 +198,7 @@ def buildQueries(language: str):
 if __name__ == "__main__":
 
     DATA = {}
+    PLACEHOLDER_SUITES = "<!-- AUTOMATION-SUITES -->"
 
     languages = []
     if not arguments.language:
@@ -183,15 +224,17 @@ if __name__ == "__main__":
 
         print(f"Output :: {output}")
 
-        OUTPUT = createTable(DATA.get(language), language)
-        createMarkdown(output, OUTPUT)
+        suite_table = createSuitesTable(DATA.get(language), language)
+        createMarkdown(output, suite_table, placeholder=PLACEHOLDER_SUITES)
 
-    full_output_path = "full-output.md"
+        query_table = createQueryTable(DATA.get(language), language)
+        createMarkdown(output, query_table, placeholder="<!-- AUTOMATION-QUERIES -->")
+
     full_output = ""
     for language in languages:
         lang = language_display.get(language)
         full_output += f"### Summary - {lang}\n\n"
-        full_output += createTable(DATA.get(language), language)
+        full_output += createSuitesTable(DATA.get(language), language)
         full_output += "\n"
 
-    createMarkdown("./README.md", full_output)
+    createMarkdown("./README.md", full_output, placeholder=PLACEHOLDER_SUITES)

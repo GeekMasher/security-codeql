@@ -8,6 +8,7 @@
  * @precision high
  * @id py/weak-cryptographic-algorithm
  * @tags security
+ *       experimental
  *       external/cwe/cwe-327
  */
 

@@ -64,7 +64,6 @@
     "python/CWE-094/CodeInjectionLocal.ql",
     "python/CWE-089/SqlInjectionLocal.ql",
     "python/CWE-502/UnsafeDeserializationLocal.ql",
-    "python/CWE-022/PathInjection.ql",
     "python/CWE-078/CommandInjectionLocal.ql",
     "codeql/python/ql/src/Security/CWE-094/CodeInjection.ql",
     "codeql/python/ql/src/Security/CWE-209/StackTraceExposure.ql",
@@ -254,6 +253,12 @@
     "codeql/python/ql/src/Summary/LinesOfUserCode.ql"
   ],
   "super-extended": [
+    "python/CWE-094/CodeInjectionLocal.ql",
+    "python/CWE-327/WeakHashingAlgorithms.ql",
+    "python/CWE-089/SqlInjectionLocal.ql",
+    "python/CWE-798/HardcodedFrameworkSecrets.ql",
+    "python/CWE-502/UnsafeDeserializationLocal.ql",
+    "python/CWE-078/CommandInjectionLocal.ql",
     "codeql/python/ql/src/Security/CWE-094/CodeInjection.ql",
     "codeql/python/ql/src/Security/CWE-209/StackTraceExposure.ql",
     "codeql/python/ql/src/Security/CWE-601/UrlRedirect.ql",
