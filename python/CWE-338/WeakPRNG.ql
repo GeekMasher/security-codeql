@@ -20,7 +20,9 @@ abstract class RandomNumberGeneratorSinks extends DataFlow::Node { }
 class OSRandom extends RandomNumberGeneratorSinks {
   OSRandom() {
     exists(DataFlow::Node call |
-      call = API::moduleImport("os").getMember("getrandom").getACall() and this = call
+      // https://docs.python.org/3/library/os.html#os.getrandom
+      call = API::moduleImport("os").getMember("getrandom").getACall() and
+      this = call
     )
   }
 }
@@ -28,7 +30,14 @@ class OSRandom extends RandomNumberGeneratorSinks {
 class PyRandom extends RandomNumberGeneratorSinks {
   PyRandom() {
     exists(DataFlow::Node call |
-      call = API::moduleImport("random").getMember("random").getACall() and this = call
+      (
+        // https://docs.python.org/3/library/random.html#random.random
+        call = API::moduleImport("random").getMember("random").getACall()
+        or
+        // https://docs.python.org/3/library/random.html#random.randbytes
+        call = API::moduleImport("random").getMember("randbytes").getACall()
+      ) and
+      this = call
     )
   }
 }
