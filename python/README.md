@@ -1,7 +1,7 @@
 # Python
 
 ## Query Suites
-<!-- AUTOMATION -->
+<!-- AUTOMATION-SUITES -->
 | Name | Queries Count | Description | Path |
 | :--- | :---- | :--- | :--- |
 | `default` | 26 | Default Query Suite | `code-scanning` |
@@ -11,4 +11,4 @@
 | `super-extended` | 31 | Security Extended with Experimental and Custom Queries Suite | `GeekMasher/security-queries/python/suites/codeql-python.qls@main` |
 
 
-<!-- AUTOMATION -->
+<!-- AUTOMATION-SUITES -->

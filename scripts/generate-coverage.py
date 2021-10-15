@@ -16,6 +16,20 @@ arguments = parser.parse_args()
 here = os.getcwd()
 codeql_folder = "codeql"
 
+language_display = {
+    "cpp": "C / CPP",
+    "csharp": "CSharp",
+    "java": "Java",
+    "javascript": "JavaScript / TypeScript",
+    "python": "Python",
+}
+default_suite_order = [
+    "default",
+    "extended",
+    "quality",
+    "local-variants",
+    "super-extended",
+]
 default_suites = {
     "default": {
         "name": "Default Query Suite",
@@ -52,7 +66,12 @@ def createTable(suites: dict, language: str):
     RETVAL += "| Name | Queries Count | Description | Path |\n"
     RETVAL += "| :--- | :---- | :--- | :--- |\n"
 
-    for suite, queries in suites.items():
+    # for suite, queries in suites.items():
+    for suite in default_suite_order:
+        queries = suites.get(suite)
+        if not queries:
+            continue
+
         data = default_suites.get(suite)
         name = data.get("name")
 
@@ -70,7 +89,7 @@ def createTable(suites: dict, language: str):
 
 
 def createMarkdown(markdown_path: str, content: str):
-    PLACEHOLDER = "<!-- AUTOMATION -->"
+    PLACEHOLDER = "<!-- AUTOMATION-SUITES -->"
     with open(markdown_path, "r") as handle:
         file_data = handle.read()
 
@@ -164,9 +183,15 @@ if __name__ == "__main__":
 
         print(f"Output :: {output}")
 
-        # print(json.dumps(DATA[language]))
-
         OUTPUT = createTable(DATA.get(language), language)
         createMarkdown(output, OUTPUT)
-        # with open(output, "w") as handle:
-        #     handle.write(OUTPUT)
+
+    full_output_path = "full-output.md"
+    full_output = ""
+    for language in languages:
+        lang = language_display.get(language)
+        full_output += f"### Summary - {lang}\n\n"
+        full_output += createTable(DATA.get(language), language)
+        full_output += "\n"
+
+    createMarkdown("./README.md", full_output)

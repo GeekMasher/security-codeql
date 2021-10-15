@@ -1,7 +1,7 @@
 # Java
 
 ## Query Suites
-<!-- AUTOMATION -->
+<!-- AUTOMATION-SUITES -->
 | Name | Queries Count | Description | Path |
 | :--- | :---- | :--- | :--- |
 | `default` | 42 | Default Query Suite | `code-scanning` |
@@ -11,4 +11,4 @@
 | `super-extended` | 96 | Security Extended with Experimental and Custom Queries Suite | `GeekMasher/security-queries/java/suites/codeql-java.qls@main` |
 
 
-<!-- AUTOMATION -->
+<!-- AUTOMATION-SUITES -->

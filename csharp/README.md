@@ -1,7 +1,7 @@
 # CSharp (C#)
 
 ## Query Suites
-<!-- AUTOMATION -->
+<!-- AUTOMATION-SUITES -->
 | Name | Queries Count | Description | Path |
 | :--- | :---- | :--- | :--- |
 | `default` | 46 | Default Query Suite | `code-scanning` |
@@ -10,4 +10,4 @@
 | `super-extended` | 76 | Security Extended with Experimental and Custom Queries Suite | `GeekMasher/security-queries/csharp/suites/codeql-csharp.qls@main` |
 
 
-<!-- AUTOMATION -->
+<!-- AUTOMATION-SUITES -->
