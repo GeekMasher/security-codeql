@@ -8,7 +8,7 @@ This repository is where I store and research CodeQL security queries for the co
 
 <!-- ENDAUTOMATION -->
 
-## Suites
+## Query Suite Summaries
 <!-- AUTOMATION-SUITES -->
 ### Summary - C / CPP
 
