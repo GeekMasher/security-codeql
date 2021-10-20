@@ -1,12 +1,14 @@
 /**
- * @name Weak Encryption of Sensitive Information
- * @description Weak Encryption of Sensitive Information using Base64
+ * @name Base64 Encoding of Sensitive Information
+ * @description Base64 Encoding is not an encryption algorithum and should not be used to encryption Sensitive Information
  * @kind path-problem
- * @problem.severity warning
- * @precision medium
- * @id java/sensative-information-logging
+ * @problem.severity error
+ * @security-severity 8.0
+ * @precision high
+ * @sub-severity high
+ * @id java/weak-encryption
  * @tags security
- *       external/cwe/cwe-532
+ *       external/cwe/cwe-327
  */
 
 import java
