@@ -3,64 +3,47 @@
 This repository is where I store and research CodeQL security queries for the community and organisations to use.
 
 ## Queries
-<!-- AUTOMATION -->
+<!-- AUTOMATION-QUERIES -->
+### Queries - C / CPP
 
+| Name | Severity | Path |
+| :--- | :------- | :--- |
 
-<!-- ENDAUTOMATION -->
+### Queries - CSharp
 
-## Query Suite Summaries
-<!-- AUTOMATION-SUITES -->
-### Summary - C / CPP
+| Name | Severity | Path |
+| :--- | :------- | :--- |
 
-| Name             | Queries Count | Description                                                  | Path                                                         |
-| :--------------- | :------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| `default`        | 37            | Default Query Suite                                          | `code-scanning`                                              |
-| `extended`       | 67            | Security Extended Suite                                      | `security-extended`                                          |
-| `quality`        | 151           | Security and Quality Extended Suite                          | `security-and-quality`                                       |
-| `super-extended` | 67            | Security Extended with Experimental and Custom Queries Suite | `GeekMasher/security-queries/cpp/suites/codeql-cpp.qls@main` |
+### Queries - Java
 
-### Summary - CSharp
+| Name                                                           | Severity      | Path                                             |
+| :------------------------------------------------------------- | :------------ | :----------------------------------------------- |
+| `Base64 Encoding of Sensitive Information`                     | High / 8.0    | `java/CWE-326/Base64Encryption.ql`               |
+| `Hard-coded password field`                                    | Unknown / 9.8 | `java/CWE-798/HardcodedPasswordsInProperties.ql` |
+| `Sensitive information exposure through logging`               | Unknown / 8.0 | `java/CWE-532/SensitiveInformation.ql`           |
+| `Use of Cryptographically Weak Pseudo-Random Number Generator` | Medium / 6.0  | `java/CWE-338/WeakPRNG.ql`                       |
+| `Customized Cross-site scripting`                              | Unknown / 6.1 | `java/CWE-079/XSSJSP.ql`                         |
 
-| Name             | Queries Count | Description                                                  | Path                                                               |
-| :--------------- | :------------ | :----------------------------------------------------------- | :----------------------------------------------------------------- |
-| `default`        | 46            | Default Query Suite                                          | `code-scanning`                                                    |
-| `extended`       | 61            | Security Extended Suite                                      | `security-extended`                                                |
-| `quality`        | 166           | Security and Quality Extended Suite                          | `security-and-quality`                                             |
-| `super-extended` | 76            | Security Extended with Experimental and Custom Queries Suite | `GeekMasher/security-queries/csharp/suites/codeql-csharp.qls@main` |
+### Queries - JavaScript / TypeScript
 
-### Summary - Java
+| Name | Severity | Path |
+| :--- | :------- | :--- |
 
-| Name             | Queries Count | Description                                                  | Path                                                                 |
-| :--------------- | :------------ | :----------------------------------------------------------- | :------------------------------------------------------------------- |
-| `default`        | 42            | Default Query Suite                                          | `code-scanning`                                                      |
-| `extended`       | 61            | Security Extended Suite                                      | `security-extended`                                                  |
-| `quality`        | 181           | Security and Quality Extended Suite                          | `security-and-quality`                                               |
-| `local-variants` | 72            | Security Extended with local variants enabled                | `GeekMasher/security-queries/java/suites/codeql-java-local.qls@main` |
-| `super-extended` | 96            | Security Extended with Experimental and Custom Queries Suite | `GeekMasher/security-queries/java/suites/codeql-java.qls@main`       |
+### Queries - Python
 
-### Summary - JavaScript / TypeScript
+| Name                                                           | Severity        | Path                                           |
+| :------------------------------------------------------------- | :-------------- | :--------------------------------------------- |
+| `Code injection`                                               | Critical / 10.0 | `python/CWE-094/CodeInjectionLocal.ql`         |
+| `SQL query built from user-controlled sources`                 | Critical / 10.0 | `python/CWE-089/SqlInjectionLocal.ql`          |
+| `Deserializing untrusted input`                                | High / 8.0      | `python/CWE-502/UnsafeDeserializationLocal.ql` |
+| `Uncontrolled command line`                                    | Critical / 10.0 | `python/CWE-078/CommandInjectionLocal.ql`      |
+| `Use of a broken or weak cryptographic algorithm`              | Medium / 5.0    | `python/CWE-327/WeakHashingAlgorithms.ql`      |
+| `Dangerous Functions`                                          | Low / 2.5       | `python/CWE-676/DangerousFunctions.ql`         |
+| `Insufficient Logging`                                         | Low / 1.0       | `python/CWE-778/InsufficientLogging.ql`        |
+| `Hard-coded credentials`                                       | Medium / 5.9    | `python/CWE-798/HardcodedFrameworkSecrets.ql`  |
+| `Use of Cryptographically Weak Pseudo-Random Number Generator` | Medium / 6.0    | `python/CWE-338/WeakPRNG.ql`                   |
 
-| Name             | Queries Count | Description                                                  | Path                                                                       |
-| :--------------- | :------------ | :----------------------------------------------------------- | :------------------------------------------------------------------------- |
-| `default`        | 74            | Default Query Suite                                          | `code-scanning`                                                            |
-| `extended`       | 84            | Security Extended Suite                                      | `security-extended`                                                        |
-| `quality`        | 182           | Security and Quality Extended Suite                          | `security-and-quality`                                                     |
-| `super-extended` | 90            | Security Extended with Experimental and Custom Queries Suite | `GeekMasher/security-queries/javascript/suites/codeql-javascript.qls@main` |
-
-### Summary - Python
-
-| Name             | Queries Count | Description                                                  | Path                                                                     |
-| :--------------- | :------------ | :----------------------------------------------------------- | :----------------------------------------------------------------------- |
-| `default`        | 26            | Default Query Suite                                          | `code-scanning`                                                          |
-| `extended`       | 31            | Security Extended Suite                                      | `security-extended`                                                      |
-| `quality`        | 153           | Security and Quality Extended Suite                          | `security-and-quality`                                                   |
-| `local-variants` | 36            | Security Extended with local variants enabled                | `GeekMasher/security-queries/python/suites/codeql-python-local.qls@main` |
-| `super-extended` | 31            | Security Extended with Experimental and Custom Queries Suite | `GeekMasher/security-queries/python/suites/codeql-python.qls@main`       |
-
-
-
-<!-- AUTOMATION-SUITES -->
-
+<!-- AUTOMATION-QUERIES -->
 ## Tools
 
 ### Scripts
