@@ -2,10 +2,12 @@
  * @name Sensitive information exposure through logging
  * @description Sensitive information exposure through logging
  * @kind path-problem
- * @problem.severity warning
- * @precision medium
  * @id java/sensitive-information-logging
+ * @problem.severity warning
+ * @security-severity 8.0
+ * @precision medium
  * @tags security
+ *       gdpr
  *       external/cwe/cwe-532
  */
 
