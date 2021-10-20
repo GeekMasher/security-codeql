@@ -364,8 +364,10 @@
     "codeql/java/ql/src/Metrics/Summaries/LinesOfCode.ql"
   ],
   "super-extended": [
+    "java/CWE-326/Base64Encryption.ql",
     "java/CWE-798/HardcodedPasswordsInProperties.ql",
-    "java/CWE-532/SensativeInformation.ql",
+    "java/CWE-532/SensitiveInformation.ql",
+    "java/CWE-338/WeakPRNG.ql",
     "java/CWE-079/XSSJSP.ql",
     "codeql/java/ql/src/Security/CWE/CWE-297/UnsafeHostnameVerification.ql",
     "codeql/java/ql/src/Security/CWE/CWE-094/InsecureBeanValidation.ql",

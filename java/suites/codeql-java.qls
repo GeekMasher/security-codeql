@@ -8,8 +8,12 @@
     id:
       # Support JSP
       - java/custom-xss
+      # Sensitive Information
       - java/sensitive-information-logging
       - java/hardcoded-password-field
+      # Crypto
+      - java/weak-cryptographic-algorithm
+      - java/weak-encryption
 
 
 - import: codeql-suites/java-security-extended.qls
