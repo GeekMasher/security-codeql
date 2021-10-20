@@ -51,12 +51,10 @@ predicate isNotCleartextCredentials(string value) {
 class ConfigPropertiesCredencials extends ConfigPair {
   ConfigPropertiesCredencials() {
     // Looks for matches to possible secret / password names
-    this.getNameElement().getName().trim().toLowerCase().matches(possibleSecretName())
+    this.getNameElement().getName().trim().toLowerCase().matches(possibleSecretName()) and
     // Make sure the name isn't encrypted
-    and 
-    not this.getNameElement().getName().trim().toLowerCase().matches(possibleEncryptedSecretName())
+    not this.getNameElement().getName().trim().toLowerCase().matches(possibleEncryptedSecretName()) and
     // Make sure the content isn't encrypted
-    and
     not isNotCleartextCredentials(this.getValueElement().getValue().trim())
   }
 
@@ -70,7 +68,6 @@ class ConfigPropertiesCredencials extends ConfigPair {
         "' in properties file"
   }
 }
-
 
 from ConfigPropertiesCredencials conf
 select conf.getValueElement(), conf.getConfigDesc()
