@@ -8,7 +8,7 @@
     id:
       # Support JSP
       - java/custom-xss
-      - java/sensative-information-logging
+      - java/sensitive-information-logging
       - java/hardcoded-password-field
 
 

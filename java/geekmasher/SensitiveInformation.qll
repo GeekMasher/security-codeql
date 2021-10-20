@@ -3,9 +3,9 @@ import semmle.code.java.dataflow.DataFlow
 import semmle.code.java.dataflow.FlowSources
 import semmle.code.java.dataflow.TaintTracking2
 
-abstract class SensativeInformationSources extends DataFlow::Node { }
+abstract class SensitiveInformationSources extends DataFlow::Node { }
 
-class HttpSession extends SensativeInformationSources {
+class HttpSession extends SensitiveInformationSources {
   HttpSession() {
     exists(MethodAccess ma |
       // https://docs.oracle.com/javaee/5/api/javax/servlet/http/HttpSession.html
@@ -16,7 +16,7 @@ class HttpSession extends SensativeInformationSources {
   }
 }
 
-class Properties extends SensativeInformationSources {
+class Properties extends SensitiveInformationSources {
   Properties() {
     exists(MethodAccess ma |
       ma.getMethod().hasName("getProperty") and
@@ -25,8 +25,8 @@ class Properties extends SensativeInformationSources {
   }
 }
 
-class SensativeVariables extends SensativeInformationSources {
-  SensativeVariables() {
+class SensitiveVariables extends SensitiveInformationSources {
+  SensitiveVariables() {
     exists(Variable v |
       (
         // User data
