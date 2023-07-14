@@ -1,36 +1,20 @@
 {
     "folders": [
         {
-            "name": "Queries - C/CPP",
-            "path": "cpp"
-        },
-        {
-            "name": "Queries - CSharp",
-            "path": "csharp"
-        },
-        {
-            "name": "Queries - GoLang",
-            "path": "golang"
-        },
-        {
-            "name": "Queries - Java",
-            "path": "java"
+            "name": "Queries - Python",
+            "path": "python"
         },
         {
             "name": "Queries - JavaScript/TypeScript",
             "path": "javascript"
         },
         {
-            "name": "Queries - Python",
-            "path": "python"
+            "name": "Queries - GoLang",
+            "path": "golang"
         },
         {
             "name": "Configuration",
             "path": "config"
-        },
-        {
-            "name": "Scripts",
-            "path": "scripts"
         },
         {
             "name": "Databases",
@@ -49,16 +33,8 @@
             "path": "codeql"
         },
         {
-            "name": "CodeQL - GoLang Query Language",
-            "path": "codeql-go"
-        },
-        {
-            "name": "CodeQL - Binaries",
-            "path": "bin"
-        },
-        {
-            "name": "Customisations Action",
-            "path": "customize"
+            "name": "CodeQL - GitHub Field Queries",
+            "path": "codeql-field"
         }
     ],
     "settings": {
@@ -72,85 +48,5 @@
         "python.testing.unittestEnabled": false,
         "python.formatting.provider": "black",
         "python.testing.promptToConfigure": false
-    },
-    "tasks": {
-        "version": "2.0.0",
-        "tasks": [
-            {
-                "label": "Run CodeQL Scan",
-                "type": "shell",
-                "command": "python3 ./scripts/scan.py --name ${input:scanningSourceCode} --language ${input:scanningLanguage}",
-                "group": "build",
-                "presentation": {
-                    "reveal": "always"
-                },
-                "options": {
-                    "cwd": ".."
-                },
-                "problemMatcher": []
-            },
-            {
-                "label": "Run CodeQL Scan on Repository",
-                "type": "shell",
-                "command": "python3 ./scripts/scan.py --repo ${input:scanningRepo} --language ${input:scanningLanguage}",
-                "group": "build",
-                "presentation": {
-                    "reveal": "always"
-                },
-                "options": {
-                    "cwd": ".."
-                },
-                "problemMatcher": []
-            },
-            {
-                "label": "Download SARIF File from GitHub",
-                "type": "shell",
-                "command": "python3 ./scripts/scan.py --repo ${input:scanningRepo} --branch ${input:scanningRepoBranch} --download-sarif",
-                "group": "build",
-                "presentation": {
-                    "reveal": "always"
-                },
-                "options": {
-                    "cwd": ".."
-                },
-                "problemMatcher": []
-            },
-            {
-                "label": "Update CodeQL",
-                "type": "shell",
-                "command": "./scripts/update.sh",
-                "group": "build",
-                "presentation": {
-                    "reveal": "always"
-                },
-                "options": {
-                    "cwd": ".."
-                },
-                "problemMatcher": []
-            }
-        ],
-        "inputs": [
-            {
-                "id": "scanningSourceCode",
-                "type": "promptString",
-                "description": "The Source code folder the code you want to scan is"
-            },
-            {
-                "id": "scanningLanguage",
-                "type": "promptString",
-                "description": "CodeQL Language"
-            },
-            {
-                "id": "scanningRepo",
-                "type": "promptString",
-                "description": "Repository"
-            },
-            {
-                "id": "scanningRepoBranch",
-                "type": "promptString",
-                "default": "main",
-                "description": "Repository Branch"
-            }
-        ]
     }
 }

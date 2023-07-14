@@ -1,0 +1,34 @@
+# https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/
+
+- description: "GeekMasher's Python Suite"
+
+# GitHub CodeQL
+- qlpack: codeql/python-queries
+
+# GitHub's Field Team python Suite
+- qlpack: advanced-security/codeql-python
+
+- include:
+    kind:
+    - problem
+    - path-problem
+    precision:
+    - very-high
+    - high
+    - medium
+
+# Code Quality Queries
+- include:
+    tags contain:
+      - correctness
+
+# Remove debugging, and audit queries
+- exclude:
+    tags contain:
+      - audit
+      - debugging
+
+# Remove local testing folders
+- exclude:
+    query path:
+      - /testing\/.*/

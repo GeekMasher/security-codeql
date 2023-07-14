@@ -1,7 +1,7 @@
 ---
 library: false
-name: geekmasher/codeql-java
+name: geekmasher/codeql-go
 version: 0.1.0
 dependencies:
-  codeql/java-all: "^0.6.2"
+  codeql/go-all: "^0.6.2"
 defaultSuiteFile: default.qls

@@ -1,3 +1,7 @@
-name: geekmasher-queries-python
+---
+library: false
+name: geekmasher/codeql-python
 version: 0.1.0
-libraryPathDependencies: codeql-python
+dependencies:
+  codeql/python-all: "^0.9.2"
+defaultSuiteFile: default.qls
