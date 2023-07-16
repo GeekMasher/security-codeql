@@ -3,31 +3,16 @@ name: "GeekMasher CodeQL Configuration"
 disable-default-queries: true
 
 queries:
-  # Enable/Disable some extra C/CPP queries
-  - name: Use @GeekMasher custom suite
-    uses: GeekMasher/security-queries/cpp/suites/codeql-cpp.qls@main
-
-  # Enable/Disable some extra Java queries
-  - name: Use a custom Java suite
-    uses: GeekMasher/security-queries/java/suites/codeql-java.qls@main
-
-  # Enable/Disable some extra JavaScript/TypeScript queries
-  - name: Use a custom JavaScript/TypeScript suite
-    uses: GeekMasher/security-queries/javascript/suites/codeql-javascript.qls@main
-
-  # Enable/Disable some extra Python queries
-  - name: Use a custom Python suite
-    uses: GeekMasher/security-queries/python/suites/codeql-python.qls@main
+  # > Python
+  - geekmasher/codeql-python
+  - advanced-security/codeql-python
+  - codeql/python-queries:codeql-suites/python-security-extended.qls
 
 
 paths-ignore:
+  # Python
+  - vendor/**
+
   # JavaScript
   - 'node_modules'
   - '**/*.test.js'
-  # JavaScript Frameworks/Libraries
-  # - '**/bootstrap.js'
-  # - '**/bootstrap.min.js'
-  # - '**/jquery-*.js'
-
-paths:
-  - '/**/'
