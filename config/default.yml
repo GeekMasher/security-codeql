@@ -11,7 +11,9 @@ packs:
 
 paths-ignore:
   # Python
-  - vendor/**
+  - "vendor/**"
+  - "examples/**"
+  - "tests/**"
 
   # JavaScript
   - 'node_modules'
