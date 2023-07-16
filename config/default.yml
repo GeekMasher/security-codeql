@@ -2,7 +2,7 @@ name: "GeekMasher CodeQL Configuration"
 
 disable-default-queries: true
 
-queries:
+packs:
   # > Python
   - geekmasher/codeql-python
   - advanced-security/codeql-python
