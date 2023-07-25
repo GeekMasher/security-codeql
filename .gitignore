@@ -1,5 +1,6 @@
 
 .cache
+.codeql
 /databases
 /results
 /sources

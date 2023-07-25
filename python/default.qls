@@ -2,24 +2,13 @@
 
 - description: "GeekMasher's Python Suite"
 
-# GitHub CodeQL
-- qlpack: codeql/python-queries
-
-# GitHub's Field Team python Suite
-- qlpack: advanced-security/codeql-python
-
-- include:
-    kind:
-    - problem
-    - path-problem
-    precision:
-    - very-high
-    - high
-    - medium
+- queries: '.'
+  from: geekmasher/codeql-python
 
 # Code Quality Queries
 - include:
     tags contain:
+      - security
       - correctness
 
 # Remove debugging, and audit queries
