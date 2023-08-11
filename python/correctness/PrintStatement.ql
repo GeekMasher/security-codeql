@@ -14,5 +14,12 @@ import semmle.python.ApiGraphs
 import semmle.python.dataflow.new.DataFlow
 
 from DataFlow::Node print
-where print = API::builtin("print").getACall()
+where
+  print = API::builtin("print").getACall() and
+  print.getScope().inSource() and
+  not print
+      .getLocation()
+      .getFile()
+      .getRelativePath()
+      .regexpMatch("^.*(?:(/examples/.*)|/__main__.py)$")
 select print, "use of print statement"
