@@ -1,6 +1,13 @@
 private import semmle.code.java.dataflow.DataFlow
+private import semmle.code.java.dataflow.ExternalFlow
 // Sinks
 private import semmle.code.java.security.QueryInjection
+private import semmle.code.java.security.CommandLineQuery
+private import semmle.code.java.security.LdapInjection
+private import semmle.code.java.security.LogInjection
+private import semmle.code.java.security.OgnlInjection
+private import semmle.code.java.security.RequestForgery
+private import semmle.code.java.security.TemplateInjection
 
 /**
  * Filter nodes by its location (relative path or base name).
@@ -20,7 +27,7 @@ predicate isCallable(DataFlow::Node sink) { sink.asExpr() instanceof MethodAcces
  * Check if the source node is a method parameter.
  */
 predicate checkSource(DataFlow::Node source) {
-  //   findByLocation(source, "SqlInjectionChallenge.java", _) and
+  // TODO: fix this
   source.asParameter() instanceof Parameter
   or
   source.asExpr() instanceof MethodAccess
@@ -30,5 +37,15 @@ predicate checkSource(DataFlow::Node source) {
  * List of all the sinks that we want to check.
  */
 class AllSinks extends DataFlow::Node {
-  AllSinks() { this instanceof QueryInjectionSink }
+  AllSinks() {
+    this instanceof QueryInjectionSink or
+    this instanceof CommandInjectionSink or
+    this instanceof LdapInjectionSink or
+    this instanceof LogInjectionSink or
+    this instanceof OgnlInjectionSink or
+    this instanceof RequestForgerySink or
+    this instanceof TemplateInjectionSink or
+    // All MaD sinks
+    sinkNode(this, _)
+  }
 }
