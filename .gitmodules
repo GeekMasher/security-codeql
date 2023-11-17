@@ -2,6 +2,6 @@
 	path = codeql
 	url = https://github.com/github/codeql.git
 	branch = main
-[submodule "codeql-field"]
-	path = codeql-field
-	url = https://github.com/advanced-security/codeql-queries.git
+[submodule "codeql-community"]
+	path = codeql-community
+	url = git@github.com:GitHubSecurityLab/CodeQL-Community-Packs.git
