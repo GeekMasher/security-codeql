@@ -1,16 +1,15 @@
 {
     "provide": [
-      "codeql/*/ql/src/qlpack.yml",
-      "codeql/*/ql/lib/qlpack.yml",
-      "codeql-field/*/qlpack.yml",
-      "codeql-field/*/qlpack.yml",
-      "*/qlpack.yml"
+        "codeql/*/ql/src/qlpack.yml",
+        "codeql/*/ql/lib/qlpack.yml",
+        "codeql-community/*/qlpack.yml",
+        "*/qlpack.yml"
     ],
     "versionPolicies": {
-      "default": {
-        "requireChangeNotes": true,
-        "committedPrereleaseSuffix": "dev",
-        "committedVersion": "nextPatchRelease"
-      }
+        "default": {
+            "requireChangeNotes": true,
+            "committedPrereleaseSuffix": "dev",
+            "committedVersion": "nextPatchRelease"
+        }
     }
-  }
+}

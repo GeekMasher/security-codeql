@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "./",
+			"name": "Personal Queries"
+		},
+        {
+            "path": "./codeql-community",
+            "name": "Community Queries"
+        },
+        {
+            "path": "./codeql",
+            "name": "CodeQL Queries"
+        }
+	],
+	"settings": {
+		"editor.formatOnSave": true,
+		"editor.formatOnPaste": true,
+	}
+}
