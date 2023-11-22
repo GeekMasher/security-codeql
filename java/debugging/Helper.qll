@@ -1,5 +1,6 @@
 private import semmle.code.java.dataflow.DataFlow
 private import semmle.code.java.dataflow.ExternalFlow
+private import semmle.code.java.dataflow.FlowSources
 // Sinks
 private import semmle.code.java.security.QueryInjection
 private import semmle.code.java.security.CommandLineQuery
@@ -31,6 +32,17 @@ predicate checkSource(DataFlow::Node source) {
   source.asParameter() instanceof Parameter
   or
   source.asExpr() instanceof MethodAccess
+}
+
+/**
+ * List of all the souces
+ */
+class AllSources extends DataFlow::Node {
+  AllSources() {
+    this instanceof LocalUserInput or
+    this instanceof RemoteFlowSource or
+    this instanceof ThreatModelFlowSource
+  }
 }
 
 /**

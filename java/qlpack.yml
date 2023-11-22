@@ -4,4 +4,5 @@ name: geekmasher/codeql-java
 version: 0.1.0
 dependencies:
   codeql/java-all: "^0.6.2"
+  githubsecuritylab/codeql-java-libs: "^0.0.0"
 defaultSuiteFile: default.qls
