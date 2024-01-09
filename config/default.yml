@@ -1,27 +1,34 @@
 name: "GeekMasher CodeQL Configuration"
 
 packs:
-  # C/C++
+  ### Personal ###
+  - geekmasher/codeql-python
+
+  ### CodeQL Security Extended ###
+  - codeql/cpp-queries:codeql-suites/cpp-security-extended.qls
+  - codeql/csharp-queries:codeql-suites/csharp-security-extended.qls
+  - codeql/go-queries:codeql-suites/go-security-extended.qls
+  - codeql/java-queries:codeql-suites/java-security-extended.qls
+  - codeql/javascript-queries:codeql-suites/javascript-security-extended.qls
+  - codeql/python-queries:codeql-suites/python-security-extended.qls
+  - codeql/ruby-queries:codeql-suites/ruby-security-extended.qls
+
+  ### CodeQL Community ###
   - githubsecuritylab/codeql-cpp-queries
-  - trailofbits/cpp-queries
-  # > C#
   - githubsecuritylab/codeql-csharp-queries
   - githubsecuritylab/codeql-csharp-extensions
   - githubsecuritylab/codeql-csharp-library-sources
-  # > Go
   - githubsecuritylab/codeql-go-queries
-  - trailofbits/go-queries
-  # > Java
   - githubsecuritylab/codeql-java-queries
   - githubsecuritylab/codeql-java-extensions
   - githubsecuritylab/codeql-java-library-sources
-  # > JavaScript
   - githubsecuritylab/codeql-javascript-queries
-  # > Python
-  - geekmasher/codeql-python
   - githubsecuritylab/codeql-python-queries
-  # > Ruby
   - githubsecuritylab/codeql-ruby-queries
+
+  ### Trail of Bits ###
+  - trailofbits/cpp-queries
+  - trailofbits/go-queries
 
 paths-ignore:
   # Python
