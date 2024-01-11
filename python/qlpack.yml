@@ -4,5 +4,5 @@ name: geekmasher/codeql-python
 version: 0.3.1
 dependencies:
   codeql/python-all: 0.10.2
-  advanced-security/codeql-python: 0.2.0
+  githubsecuritylab/codeql-python-libs: 0.0.1
 defaultSuiteFile: default.qls
