@@ -1,12 +1,22 @@
 ---
 lockVersion: 1.0.0
 dependencies:
-  advanced-security/codeql-python:
-    version: 0.2.0
+  codeql/dataflow:
+    version: 0.0.1
+  codeql/mad:
+    version: 0.1.2
   codeql/python-all:
-    version: 0.8.0
+    version: 0.10.2
   codeql/regex:
-    version: 0.0.7
+    version: 0.1.2
+  codeql/ssa:
+    version: 0.1.2
   codeql/tutorial:
-    version: 0.0.4
+    version: 0.1.2
+  codeql/util:
+    version: 0.1.2
+  codeql/yaml:
+    version: 0.1.2
+  githubsecuritylab/codeql-python-libs:
+    version: 0.0.1
 compiled: false

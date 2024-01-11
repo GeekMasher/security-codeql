@@ -2,7 +2,7 @@
 
 - description: "GeekMasher's Python Suite"
 
-- queries: '.'
+- queries: "."
   from: geekmasher/codeql-python
 
 # Code Quality Queries
@@ -10,6 +10,10 @@
     tags contain:
       - security
       - correctness
+
+- include:
+  kind:
+    - diagnostic
 
 # Remove debugging, and audit queries
 - exclude:
