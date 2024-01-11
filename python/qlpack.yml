@@ -1,7 +1,7 @@
 ---
 library: false
 name: geekmasher/codeql-python
-version: 0.3.0
+version: 0.3.1
 dependencies:
   codeql/python-all: 0.10.2
   advanced-security/codeql-python: 0.2.0
