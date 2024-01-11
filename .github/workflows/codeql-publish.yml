@@ -1,0 +1,45 @@
+name: Publish CodeQL Packs
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+
+  queries:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ["python"]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Initialize CodeQL
+        run: |
+          VERSION="$(find "${{ runner.tool_cache }}/CodeQL/" -maxdepth 1 -mindepth 1 -type d -print \
+                       | sort \
+                       | tail -n 1 \
+                       | tr -d '\n')"
+          echo "$VERSION/x64/codeql" >> $GITHUB_PATH
+
+      - name: "Check and publish codeql-LANG-queries (src) pack"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GHCR_TOKEN }}
+        run: |
+          PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-queries/versions --jq '.[0].metadata.container.tags[0]')
+          CURRENT_VERSION=$(grep version ${{ matrix.language }}/src/qlpack.yml | awk '{print $2}')
+
+          echo "Published verion: $PUBLISHED_VERSION"
+          echo "Local verion: $CURRENT_VERSION"
+          if [ "$PUBLISHED_VERSION" != "$CURRENT_VERSION" ]; then
+            codeql pack install "${{ matrix.language }}/src"
+            codeql pack publish "${{ matrix.language }}/src"
+          fi
