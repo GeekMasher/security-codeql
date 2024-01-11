@@ -17,8 +17,8 @@ import semmle.python.dataflow.new.RemoteFlowSources
 import semmle.python.dataflow.new.BarrierGuards
 import semmle.python.ApiGraphs
 // Helpers
-import github.Helpers
-import github.LocalSources
+import ghsl.Helpers
+import ghsl.LocalSources
 import geekmasher.Utils
 
 // Partial Graph
@@ -29,19 +29,21 @@ module RemoteFlowsConfig implements DataFlow::ConfigSig {
     source instanceof LocalSources::Range
   }
 
-  predicate isSink(DataFlow::Node sink) { sink instanceof FunctionCallArgs }
+  predicate isSink(DataFlow::Node sink) { any() }
 }
 
 int explorationLimit() { result = 10 }
 
 module RemoteFlows = DataFlow::Global<RemoteFlowsConfig>;
 
-module RemoteFlowsPartial = RemoteFlows::FlowExploration<explorationLimit/0>;
+module RemoteFlowsPartial = RemoteFlows::FlowExplorationFwd<explorationLimit/0>;
 
 import RemoteFlowsPartial::PartialPathGraph
 
 from RemoteFlowsPartial::PartialPathNode source, RemoteFlowsPartial::PartialPathNode sink
 where RemoteFlowsPartial::partialFlow(source, sink, _)
+/// Filter sinks to just Function / Call arguments
+// and sink.getNode() instanceof FunctionCallArgs
 /// Filter by location
 // and findByLocation(sink.getNode(), "app.py", 20)
 //

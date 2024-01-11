@@ -12,7 +12,7 @@
 import python
 import semmle.python.dataflow.new.DataFlow
 import semmle.python.dataflow.new.RemoteFlowSources
-import github.Helpers
+import ghsl.Helpers
 
 from DataFlow::Node sinks
 where

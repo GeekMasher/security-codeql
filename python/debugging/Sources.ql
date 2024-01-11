@@ -12,7 +12,7 @@
 import python
 import semmle.python.dataflow.new.DataFlow
 import semmle.python.dataflow.new.RemoteFlowSources
-import github.LocalSources
+import ghsl.LocalSources
 
 class Sources extends DataFlow::Node {
   Sources() {
