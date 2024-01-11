@@ -1,5 +1,13 @@
 import python
-import semmle.python.dataflow.new.DataFlow
+private import semmle.python.dataflow.new.DataFlow
+
+/**
+ * Find Node at Location
+ */
+predicate findByLocation(DataFlow::Node node, string relative_path, int linenumber) {
+  node.getLocation().getFile().getRelativePath() = relative_path and
+  node.getLocation().getStartLine() = linenumber
+}
 
 class FunctionArgs extends DataFlow::Node {
   FunctionArgs() {

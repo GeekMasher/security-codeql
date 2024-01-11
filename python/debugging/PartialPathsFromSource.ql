@@ -16,9 +16,9 @@ import semmle.python.Concepts
 import semmle.python.dataflow.new.RemoteFlowSources
 import semmle.python.dataflow.new.BarrierGuards
 import semmle.python.ApiGraphs
-// Helpers
-import ghsl.Helpers
+// GitHub Security Lab Library
 import ghsl.LocalSources
+// Helper Libraries
 import geekmasher.Utils
 
 // Partial Graph

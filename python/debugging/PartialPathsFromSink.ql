@@ -16,10 +16,9 @@ import semmle.python.Concepts
 import semmle.python.dataflow.new.RemoteFlowSources
 import semmle.python.dataflow.new.BarrierGuards
 import semmle.python.ApiGraphs
-// GH Security Lab Library
-import ghsl.Helpers
 // Shared libraries
 import geekmasher.Utils
+import geekmasher.Sinks
 
 /**
  * Manual Sinks
