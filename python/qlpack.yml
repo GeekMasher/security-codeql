@@ -3,6 +3,6 @@ library: false
 name: geekmasher/codeql-python
 version: 0.3.1
 dependencies:
-  codeql/python-all: 0.11.5
-  githubsecuritylab/codeql-python-libs: 0.0.1
+  codeql/python-all: "^0.11.5"
+  githubsecuritylab/codeql-python-libs: "^0.0.1"
 defaultSuiteFile: default.qls
