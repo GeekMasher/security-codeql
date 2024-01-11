@@ -36,11 +36,11 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-queries/versions --jq '.[0].metadata.container.tags[0]')
-          CURRENT_VERSION=$(grep version ${{ matrix.language }}/src/qlpack.yml | awk '{print $2}')
+          CURRENT_VERSION=$(grep version ${{ matrix.language }}/qlpack.yml | awk '{print $2}')
 
           echo "Published verion: $PUBLISHED_VERSION"
           echo "Local verion: $CURRENT_VERSION"
           if [ "$PUBLISHED_VERSION" != "$CURRENT_VERSION" ]; then
-            codeql pack install "${{ matrix.language }}"
-            codeql pack publish "${{ matrix.language }}"
+            codeql pack install "./${{ matrix.language }}"
+            codeql pack publish ".${{ matrix.language }}"
           fi
