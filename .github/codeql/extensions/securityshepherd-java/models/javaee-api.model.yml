@@ -1,0 +1,31 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["javax.servlet.http","HttpSession",true,"getAttribute","(String)","","ReturnValue","remote","ai-generated"]
+      - ["javax.servlet.http","HttpServletRequest",true,"getSession","(boolean)","","ReturnValue","remote","ai-generated"]
+      - ["javax.servlet","GenericServlet",true,"getServletContext","()","","ReturnValue","remote","ai-generated"]
+      - ["javax.servlet","ServletRequest",true,"getRemoteAddr","()","","ReturnValue","remote","ai-generated"]
+      - ["javax.servlet.http","HttpServletRequest",true,"getCookies","()","","ReturnValue","remote","ai-generated"]
+      - ["javax.servlet","ServletResponse",true,"getWriter","()","","ReturnValue","remote","ai-generated"]
+      - ["javax.servlet.http","HttpServletRequest",true,"getMethod","()","","ReturnValue","remote","ai-generated"]
+
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sinkModel
+    data:
+      - ["javax.servlet","ServletContext",true,"getRealPath","(String)","","Argument[this]","path-injection","ai-generated"]
+      - ["javax.servlet.http","HttpServletResponse",true,"sendRedirect","(String)","","Argument[this]","request-forgery","ai-generated"]
+      - ["javax.servlet.http","Cookie",true,"setPath","(String)","","Argument[this]","request-forgery","ai-generated"]
+      - ["javax.servlet.http","HttpServletResponse",true,"setStatus","(int)","","Argument[this]","request-forgery","ai-generated"]
+
+  - addsTo:
+      pack: codeql/java-all
+      extensible: summaryModel
+    data: []
+
+  - addsTo:
+      pack: codeql/java-all
+      extensible: neutralModel
+    data: []

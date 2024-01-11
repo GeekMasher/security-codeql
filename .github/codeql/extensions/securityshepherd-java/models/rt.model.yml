@@ -1,0 +1,29 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["javax.crypto","Cipher",true,"getInstance","(String)","","ReturnValue","remote","ai-generated"]
+      - ["javax.xml.parsers","DocumentBuilder",true,"parse","(InputSource)","","ReturnValue","remote","ai-generated"]
+      - ["java.net","URL",true,"getHost","()","","ReturnValue","remote","ai-generated"]
+      - ["java.net","URL",true,"getQuery","()","","ReturnValue","remote","ai-generated"]
+      - ["javax.crypto","Mac",true,"doFinal","(byte[])","","ReturnValue","remote","ai-generated"]
+      - ["javax.xml.parsers","DocumentBuilderFactory",true,"newDocumentBuilder","()","","ReturnValue","remote","ai-generated"]
+
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sinkModel
+    data:
+      - ["java.sql","PreparedStatement",true,"execute","()","","Argument[this]","sql-injection","ai-generated"]
+      - ["java.sql","PreparedStatement",true,"setFloat","(int,float)","","Argument[this]","sql-injection","ai-generated"]
+      - ["java.sql","ResultSet",true,"getLong","(int)","","Argument[this]","sql-injection","ai-generated"]
+
+  - addsTo:
+      pack: codeql/java-all
+      extensible: summaryModel
+    data: []
+
+  - addsTo:
+      pack: codeql/java-all
+      extensible: neutralModel
+    data: []

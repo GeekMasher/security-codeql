@@ -12,8 +12,8 @@
       - correctness
 
 - include:
-  kind:
-    - diagnostic
+    kind:
+      - diagnostic
 
 # Remove debugging, and audit queries
 - exclude:

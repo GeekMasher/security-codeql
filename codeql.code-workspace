@@ -11,6 +11,14 @@
 		{
 			"path": "./codeql",
 			"name": "CodeQL Queries"
+		},
+		{
+			"name": "[dsp-testing/SecurityShepherd source archive]",
+			"uri": "codeql-zip-archive://0-146/Users/geekmasher/Library/Application Support/Code/User/workspaceStorage/a14c939b5baa797beeb4d9ca5b3b722a/GitHub.vscode-codeql/java-1/java/src.zip"
+		},
+		{
+			"name": "CodeQL Extension Packs",
+			"path": ".github/codeql/extensions"
 		}
 	],
 	"settings": {

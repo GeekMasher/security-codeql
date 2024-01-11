@@ -1,0 +1,33 @@
+extensions:
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sourceModel
+    data:
+      - ["com.mongodb","MongoClientOptions$Builder",true,"build","()","","ReturnValue","remote","ai-generated"]
+      - ["com.mongodb","DB",true,"command","(DBObject)","","ReturnValue","remote","ai-generated"]
+      - ["com.mongodb","MongoClient",true,"listDatabaseNames","()","","ReturnValue","remote","ai-generated"]
+      - ["com.mongodb","DB",true,"getCollection","(String)","","ReturnValue","remote","ai-generated"]
+      - ["com.mongodb","DBCollection",true,"find","(DBObject)","","ReturnValue","remote","ai-generated"]
+
+  - addsTo:
+      pack: codeql/java-all
+      extensible: sinkModel
+    data:
+      - ["com.mongodb","DB",true,"command","(DBObject)","","Argument[this]","command-injection","ai-generated"]
+      - ["com.mongodb","DB",true,"command","(DBObject)","","Argument[0]","command-injection","ai-generated"]
+      - ["com.mongodb","DB",true,"getCollection","(String)","","Argument[this]","sql-injection","ai-generated"]
+      - ["com.mongodb","DB",true,"getCollection","(String)","","Argument[0]","sql-injection","ai-generated"]
+      - ["com.mongodb","DBCollection",true,"find","(DBObject)","","Argument[this]","sql-injection","ai-generated"]
+      - ["com.mongodb","DBCollection",true,"find","(DBObject)","","Argument[0]","sql-injection","ai-generated"]
+      - ["com.mongodb","ServerAddress",true,"ServerAddress","(String,int)","","Argument[0]","request-forgery","ai-generated"]
+      - ["com.mongodb","BasicDBObject",true,"BasicDBObject","(String,Object)","","Argument[1]","sql-injection","ai-generated"]
+
+  - addsTo:
+      pack: codeql/java-all
+      extensible: summaryModel
+    data: []
+
+  - addsTo:
+      pack: codeql/java-all
+      extensible: neutralModel
+    data: []

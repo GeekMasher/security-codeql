@@ -2,7 +2,8 @@
     "provide": [
         "codeql/*/ql/src/qlpack.yml",
         "codeql/*/ql/lib/qlpack.yml",
-        "codeql-community/*/qlpack.yml",
+        "codeql-community/*/lib/qlpack.yml",
+        "codeql-community/*/src/qlpack.yml",
         "*/qlpack.yml"
     ],
     "versionPolicies": {
