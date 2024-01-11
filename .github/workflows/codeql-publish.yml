@@ -34,11 +34,11 @@ jobs:
 
       - name: "Check and publish codeql-LANG-queries (src) pack"
         env:
-          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ secrets.CODEQL_PUBLISH }}
           GH_TOKEN: ${{ github.token }}
         run: |
           PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-queries/versions --jq '.[0].metadata.container.tags[0]')
-          CURRENT_VERSION=$(grep version ${{ matrix.language }}/src/qlpack.yml | awk '{print $2}')
+          CURRENT_VERSION=$(grep version ${{ matrix.language }}/qlpack.yml | awk '{print $2}')
 
           echo "Published verion: $PUBLISHED_VERSION"
           echo "Local verion: $CURRENT_VERSION"
