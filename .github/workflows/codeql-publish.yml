@@ -34,7 +34,7 @@ jobs:
 
       - name: "Check and publish codeql-LANG-queries (src) pack"
         env:
-          GITHUB_TOKEN: ${{ secrets.CODEQL_PUBLISH }}
+          GITHUB_TOKEN: ${{ github.token }}
           GH_TOKEN: ${{ github.token }}
         run: |
           PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-queries/versions --jq '.[0].metadata.container.tags[0]')
