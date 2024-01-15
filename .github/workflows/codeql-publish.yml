@@ -37,7 +37,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           GH_TOKEN: ${{ github.token }}
         run: |
-          PUBLISHED_VERSION=$(gh api /orgs/githubsecuritylab/packages/container/codeql-${{ matrix.language }}-queries/versions --jq '.[0].metadata.container.tags[0]')
+          PUBLISHED_VERSION=$(gh api /user/packages/container/codeql-python/versions --jq '.[0].metadata.container.tags[0]')
           CURRENT_VERSION=$(grep version ${{ matrix.language }}/qlpack.yml | awk '{print $2}')
 
           echo "Published verion: $PUBLISHED_VERSION"
