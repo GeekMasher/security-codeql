@@ -1,3 +1,7 @@
+/**
+ * Helper functions for debugging
+ */
+
 private import semmle.code.java.dataflow.DataFlow
 private import semmle.code.java.dataflow.ExternalFlow
 private import semmle.code.java.dataflow.FlowSources
@@ -22,7 +26,7 @@ predicate findByLocation(DataFlow::Node node, string relative_path, int linenumb
 /**
  * This will only show sinks that are callable (method calls)
  */
-predicate isCallable(DataFlow::Node sink) { sink.asExpr() instanceof MethodAccess }
+predicate isCallable(DataFlow::Node sink) { sink.asExpr() instanceof MethodCall }
 
 /**
  * Check if the source node is a method parameter.
@@ -31,7 +35,7 @@ predicate checkSource(DataFlow::Node source) {
   // TODO: fix this
   source.asParameter() instanceof Parameter
   or
-  source.asExpr() instanceof MethodAccess
+  source.asExpr() instanceof MethodCall
 }
 
 /**
@@ -41,7 +45,7 @@ class AllSources extends DataFlow::Node {
   AllSources() {
     this instanceof LocalUserInput or
     this instanceof RemoteFlowSource or
-    this instanceof ThreatModelFlowSource
+    this instanceof ActiveThreatModelSource
   }
 }
 

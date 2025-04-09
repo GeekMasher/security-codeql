@@ -8,11 +8,8 @@
  * @id java/debugging/sources
  * @tags debugging
  */
-import java
-import semmle.code.java.dataflow.DataFlow
-import semmle.code.java.dataflow.FlowSources
-import semmle.code.java.dataflow.TaintTracking2
 
+import java
 import Helper
 
 from AllSources sources
