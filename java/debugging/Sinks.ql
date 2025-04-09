@@ -10,7 +10,7 @@
  */
 
 import java
-import Helper
+import stdlib
 
 from AllSinks sinks
 select sinks, "sinks"

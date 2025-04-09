@@ -39,6 +39,11 @@ predicate checkSource(DataFlow::Node source) {
 }
 
 /**
+ * Local sources
+ */
+class LocalSources = LocalUserInput;
+
+/**
  * List of all the souces
  */
 class AllSources extends DataFlow::Node {
